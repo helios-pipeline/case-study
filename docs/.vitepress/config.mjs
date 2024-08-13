@@ -3,6 +3,7 @@ import { defineConfig } from "vitepress";
 export default defineConfig({
   title: "Helios Case Study",
   description: "case study - Helios data stream analysis platform",
+  cleanUrls: true,
   themeConfig: {
     nav: [{ text: "Home", link: "/" }],
 
