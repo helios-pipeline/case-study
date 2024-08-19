@@ -22,7 +22,7 @@ As defined in "Designing Data-Intensive Applications" (DDIA), analytical queries
 
 Databases typically fall into two categories: **Online Analytical Processing (OLAP)** and **Online Transaction Processing (OLTP)**, each optimized for distinct use cases. **OLAP** systems, primarily used for analytics, are designed to process millions of records per query. In contrast, **OLTP** systems typically process small numbers of records per query using keys and indexes for quick data retrieval. The fundamental difference lies in their access patterns: OLTP prioritizes small-scale transactions, while OLAP focuses on large-scale data analysis.
 
-Ultimately, we chose ClickHouse as our OLAP database to power Helios' analytical capabilities. _Later(link!)_ in this case study, we will provide a detailed exploration of our database selection process, including the factors that influenced our decision.
+Ultimately, we chose ClickHouse as our OLAP database to power Helios' analytical capabilities. [Later](./building-helios.md#choosing-a-database) in this case study, we will provide a detailed exploration of our database selection process, including the factors that influenced our decision.
 
 The following diagram illustrates our storage architecture:
 
@@ -55,7 +55,7 @@ By leveraging Lambda, we created a flexible and scalable solution tailored to ou
 
 Helios’ Lambda Processor is an AWS serverless function that serves as a connector between Amazon Kinesis event streams and ClickHouse tables. The Lambda’s main roles are to decode the events from the Kinesis stream and insert them into the ClickHouse database. The full process involves retrieving table information, preparing data for batch insertion, and attempting to insert the data into ClickHouse.
 
-Using an event based trigger, the function ingests _event data(tooltip)_ from AWS Kinesis streams, and decodes the Kinesis event payload into a JSON object.
+Using an event-based trigger, the function ingests <TippyWrapper content="In Amazon Kinesis, this is formally called a 'record'. However, for consistency and clarity in our discussion, we will continue to refer to it as an 'event' throughout this case study.">event data</TippyWrapper> from AWS Kinesis streams, and decodes the Kinesis event payload into a JSON object.
 
 ![][image4]
 

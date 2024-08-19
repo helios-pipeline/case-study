@@ -34,7 +34,7 @@ Below is an example of how row-based databases might execute an analytical query
 
 ### Column-based Storage
 
-Columnar databases such as Clickhouse and Apache Druid use column-based storage. The key difference is that columns are treated as the primary unit and stored sequentially on the disk. When running queries that span only a few columns, a columnar database can ignore unneeded columns. Additionally, columns can be compressed more efficiently than rows, leading to better storage efficiency and speed. More performance details can be found in our Benchmarking\[link\] section.
+Columnar databases such as Clickhouse and Apache Druid use column-based storage. The key difference is that columns are treated as the primary unit and stored sequentially on the disk. When running queries that span only a few columns, a columnar database can ignore unneeded columns. Additionally, columns can be compressed more efficiently than rows, leading to better storage efficiency and speed. More performance details can be found in our [Benchmarking](./load-testing.md#benchmarking) section.
 
 Below is an example of how column-based databases might execute an analytical query:
 
@@ -46,15 +46,15 @@ After evaluating these database types, it was clear that columnar-based storage 
 
 ### Why Clickhouse
 
-After deciding on a columnar database, we evaluated a number of database option and ultimately selected Clickhouse as our preferred choice because it met all of our original criteria and had a few extra standout benefits:
+After deciding on a columnar database, we evaluated a number of database options and ultimately selected Clickhouse as our preferred choice because it met all of our original criteria plus had a few extra standout benefits:
 
 - High write throughput
 - Low-latency query performance
-- SQL Support
+- <TippyWrapper content="Provides the most support for ANSI SQL compared to the other columnar databases we evaluated such as Apache Druid and Apache Pinot, allowing users to leverage familiar query syntax and features">SQL Support</TippyWrapper>
 - Comprehensive Documentation
 - Open Source
 
-Of the criteria listed above, the one that stood out to us the most was ClickHouse’s low read and write latency. Detailed benchmark information can be found in ‘Load Testing.’
+Of the criteria listed above, ClickHouse's impressive read and write latency particularly impressed us. For more insights into ClickHouse's performance, see our [Load Testing](./load-testing.md) results.
 
 ## Deploying ClickHouse
 
@@ -66,7 +66,7 @@ We explored several options when determining the optimal deployment strategy for
 
 Contrary to the typical horizontal scaling strategy for other database types like Druid, the ClickHouse development team specifically advises against premature horizontal scaling. Their recommendation stems from ClickHouse's design, which is optimized for efficient performance on a single server, even at scales of hundreds of billions of rows. This guidance challenged our initial assumptions about needing a containerized cluster deployment strategy.
 
-💡 “ClickHouse was designed from the ground up to utilize the full resources of a machine. We commonly find successful deployments with ClickHouse deployed on servers with hundreds of cores, terabytes of RAM, and petabytes of disk space. Most analytical queries have a sort, filter, and aggregation stage. Each of these can be parallelized independently and will, by default, use as many [threads as cores](https://clickhouse.com/docs/en/operations/settings/settings/#settings-max_threads), thus utilizing the full machine resources for a query.”
+> 💡 “ClickHouse was designed from the ground up to utilize the full resources of a machine. We commonly find successful deployments with ClickHouse deployed on servers with hundreds of cores, terabytes of RAM, and petabytes of disk space. Most analytical queries have a sort, filter, and aggregation stage. Each of these can be parallelized independently and will, by default, use as many [threads as cores](https://clickhouse.com/docs/en/operations/settings/settings/#settings-max_threads), thus utilizing the full machine resources for a query.”
 
 Key factors in our decision-making process included:
 

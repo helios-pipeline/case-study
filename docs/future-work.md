@@ -13,13 +13,13 @@ The introduction of API endpoints in Helios would significantly enhance user cap
 
 Materialized views allow users to shift the cost of computation from query time to insert time, resulting in faster SELECT queries. Supporting materialized views will help utilize the efficiency and real-time abilities of our ClickHouse database. Explaining ClickHouse’s version of materialized views is best done by ClickHouse themselves:
 
-“A ClickHouse materialized view is a trigger that runs a query on blocks of data as they are inserted into a table. The result of this query is inserted into a second "target" table …
-
-The principal motivation for materialized views is that the results inserted into the target table represent the results of an aggregation, filtering, or transformation on rows. These results will often be a smaller representation of the original data ….
-
-\[This\] ensures query times are faster than if the same computation was performed on the original data, shifting computation (and thus query latency) from query time to insert time.
-
-Materialized views in ClickHouse are updated in real-time as data flows into the table they are based on, functioning more like continually updating indexes. This is in contrast to other databases where materialized views are typically static snapshots of a query that must be refreshed”
+> “A ClickHouse materialized view is a trigger that runs a query on blocks of data as they are inserted into a table. The result of this query is inserted into a second "target" table …
+>
+> The principal motivation for materialized views is that the results inserted into the target table represent the results of an aggregation, filtering, or transformation on rows. These results will often be a smaller representation of the original data ….
+>
+> \[This\] ensures query times are faster than if the same computation was performed on the original data, shifting computation (and thus query latency) from query time to insert time.
+>
+> Materialized views in ClickHouse are updated in real-time as data flows into the table they are based on, functioning more like continually updating indexes. This is in contrast to other databases where materialized views are typically static snapshots of a query that must be refreshed”
 
 ## Additional data sources
 
