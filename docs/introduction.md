@@ -14,7 +14,7 @@ In today's data-driven landscape, teams increasingly rely on real-time event str
 
 An **event** is a state change in a system or application. This could be as simple as a user clicking a button or as complex as a critical system update.
 
-“\[An event is\] a small, self-contained, immutable object containing the details of something that happened at some point in time … \[it\] might be an action that a user took, such as viewing a page or making a purchase. It might also originate from a machine, such as a periodic measurement from a temperature sensor, or a CPU utilization metric.” \- DDIA
+> “\[An event is\] a small, self-contained, immutable object containing the details of something that happened at some point in time … \[it\] might be an action that a user took, such as viewing a page or making a purchase. It might also originate from a machine, such as a periodic measurement from a temperature sensor, or a CPU utilization metric.” \- DDIA
 
 #### Event streaming
 
@@ -63,7 +63,7 @@ Given these challenges with event streams, various platforms exist to improve ev
 
 ### Third-Party Managed Services
 
-There are a number _of data analytics managed services(tooltip!)_ that help teams access their streaming data for analysis.
+There are a number of <TippyWrapper content="Managed service providers include: Tinybird, ClickHouse Cloud, StarTree, DoubleCloud, Altinity, & Imply">data analytics managed services</TippyWrapper> that help teams access their streaming data for analysis.
 
 For example, Tinybird is a data platform that allows users to explore real-time event streams using SQL and publish API endpoints of the query results to be consumed by user-facing analytics systems. Some of their most well-known customers include Canva and Vercel.
 
@@ -104,7 +104,7 @@ At its core, Helios is comprised of:
 
 As with any tool, the suitability of Helios depends on each team's specific requirements, existing infrastructure, and resources. We encourage potential users to evaluate how our offering aligns with their particular needs and constraints.
 
-Comparison Table
+### Comparison Table
 
 To summarize, teams have numerous options for viewing and analyzing events within Kinesis streams. There is no one-size-fits-all solution. The choices can be broadly categorized into three main options: DIY, paid 3rd-party services, and open-source solutions (including Helios).
 

@@ -2,6 +2,7 @@
   "name": "write_up",
   "version": "1.0.0",
   "description": "",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "docs:dev": "vitepress dev docs",
@@ -21,6 +22,7 @@
     "@fortawesome/free-regular-svg-icons": "^6.6.0",
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
     "@fortawesome/vue-fontawesome": "^3.0.8",
-    "prismjs": "^1.29.0"
+    "prismjs": "^1.29.0",
+    "vue-tippy": "^6.4.4"
   }
 }

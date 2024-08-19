@@ -11,10 +11,10 @@ export default defineConfig({
         { text: "Introduction", link: "/introduction" },
         { text: "Helios Architecture", link: "/helios-architecture" },
         { text: "Building Helios: Design Choices", link: "/building-helios" },
+        { text: "Automating Deployment", link: "/automating-deployment" },
         { text: "Improving Core Platform", link: "/improving-core-platform" },
         { text: "Scaling", link: "/scaling" },
         { text: "Load Testing", link: "/load-testing" },
-        { text: "Automating Deployment", link: "/automating-deployment" },
         { text: "Future Work", link: "/future-work" },
         { text: "References", link: "/references" },
       ],
@@ -29,4 +29,3 @@ export default defineConfig({
     },
   },
 });
-

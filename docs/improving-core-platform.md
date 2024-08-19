@@ -33,7 +33,7 @@ These optimizations improve system performance while reducing costs for users, a
 
 ### Parallelization
 
-Parallelization in the context of Lambdas means that multiple Lambda instances can be run at the same time. By default, the Lambda parallelization factor is set to 1\. This means that only 1 Lambda instance can be a trigger for 1 Kinesis shard. We adjusted this setting to 10, allowing up to 10 Lambda instances to process data from a single Kinesis shard simultaneously. This significantly improves our ingestion capacity and scalability, increasing our system's ability to handle high-volume data streams quickly and efficiently.
+Parallelization in the context of Lambdas means that multiple Lambda instances can be run at the same time. By default, the Lambda parallelization factor is set to 1\. This means that only one Lambda instance can be a trigger for one Kinesis <TippyWrapper content="A shard is a unit of capacity within a Kinesis stream that provides a fixed amount of data throughput and serves as a partition for organizing events.">shard</TippyWrapper>. We adjusted this setting to 10, allowing up to 10 Lambda instances to process data from a single Kinesis shard simultaneously. This significantly improves our ingestion capacity and scalability, increasing our system's ability to handle high-volume data streams quickly and efficiently.
 
 ![][image3]
 
@@ -61,7 +61,9 @@ The underlying goal for developing Helios is to provide Amazon Kinesis customers
 
 To address this, we implemented a feature allowing users to download the results of any SQL query as a CSV file. This functionality enables information sharing and integration with other tools in users' data analysis workflows.
 
-Future enhancements are planned to further expand the utility of query results for Helios users. These improvements will aim to provide even more flexibility in how users can leverage their SQL query results. Please refer to the Future Work section below for more details on upcoming features.
+Future enhancements are planned to further expand the utility of query results for Helios users. These improvements will aim to provide even more flexibility in how users can leverage their SQL query results. Please refer to the [Future Work](./future-work.md) section below for more details on upcoming features.
+
+---
 
 To summarize our core platform improvements, we bolstered the platform with features including quarantine tables, Lambda optimizations, S3 backups, and CSV exports. These enhancements to Helios have improved our system resilience, error handling, and overall performance.
 
