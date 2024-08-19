@@ -1,3 +1,5 @@
+// Credit to this codepen https://codepen.io/sarazond/pen/LYGbwj for creating the original animated star background
+
 @function multiple-box-shadow ($n) {
   $value: '#{random(100)}vw #{random(100)}vw #FFF';
   @for $i from 2 through $n {
