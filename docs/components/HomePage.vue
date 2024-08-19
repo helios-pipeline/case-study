@@ -61,3 +61,292 @@
     </div>
   </div>
 </template>
+
+<style scoped>
+/* General Body */
+.body {
+    font-family: 'Lato', Arial, sans-serif;
+    background-color: #1a202c;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    max-width: 1500px;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Navigation */
+nav ul {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    margin-left: 1rem;
+}
+
+nav ul li a {
+    color: whitesmoke;
+    text-decoration: none;
+    font-size: 1.3rem;
+}
+
+nav ul li a:hover {
+    color: #c4b5fd;
+}
+
+/* Main Content */
+main {
+    flex-grow: 1;
+    padding: 0 3rem 3rem 3rem;
+    max-width: 1500px;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    text-align: center;
+    padding: 10rem 0;
+}
+
+/* Complex Pulse Animation */
+@keyframes complexPulse {
+    0% {
+        opacity: 0.7;
+        transform: scale(1) rotate(0deg) skew(0deg, 0deg);
+    }
+    25% {
+        opacity: 0.8;
+        transform: scale(1.02) rotate(0.5deg) skew(0.5deg, 0.5deg);
+    }
+    50% {
+        opacity: 0.9;
+        transform: scale(1.05) rotate(1deg) skew(1deg, 1deg);
+    }
+    75% {
+        opacity: 0.8;
+        transform: scale(1.02) rotate(0.5deg) skew(0.5deg, 0.5deg);
+    }
+    100% {
+        opacity: 0.7;
+        transform: scale(1) rotate(0deg) skew(0deg, 0deg);
+    }
+}
+
+/* Hero Background */
+.hero::before {
+    content: "";
+    position: absolute;
+    top: -90px;
+    left: -20%;
+    width: 130%;
+    height: 1000px;
+    background-image: url('./blur1.png');
+    background-position: center;
+    background-size: cover;
+    z-index: -1;
+    pointer-events: none;
+    animation: complexPulse 12s ease-in-out infinite;
+    transform-origin: center;
+}
+
+/* Kinesis Section */
+.kinesis .content {
+    position: relative;
+}
+
+.kinesis .content::before {
+    content: "";
+    position: absolute;
+    top: -90px;
+    left: 0;
+    width: 100%;
+    height: 300px;
+    background-image: url('./blur2.png');
+    background-position: center;
+    background-size: cover;
+    z-index: -1;
+}
+
+.kinesis-img {
+    max-width: 27%;
+}
+
+/* CLI Section */
+section.content-section.cli {
+    margin-bottom: 10rem;
+}
+
+.cli .content {
+    position: relative;
+}
+
+.cli .content::before {
+    content: "";
+    position: absolute;
+    top: -140px;
+    left: 60px;
+    width: 100%;
+    height: 500px;
+    background-image: url('./blur3.png');
+    background-position: center;
+    background-size: cover;
+    z-index: -1;
+}
+
+/* Main Background Trail */
+main::after {
+    content: "";
+    position: absolute;
+    top: 800px;
+    left: 35px;
+    width: 100%;
+    aspect-ratio: 1/1;
+    background-image: url('./trail.png');
+    background-position: center;
+    background-size: cover;
+    z-index: -1;
+}
+
+/* Hero Text */
+.hero h1 {
+    font-size: clamp(2.5rem, 0.3125rem + 3.75vw, 6rem);
+    font-weight: 600;
+    margin-bottom: 1rem;
+    opacity: var(--sds-size-stroke-border);
+    padding: 2.5rem;
+    background: #365EAB;
+    background: linear-gradient(to top, #365EAB 0%, #F7B655 64%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+}
+
+/* Button */
+button {
+    background-color: #7c3aed;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 0.25rem;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #1d132e;
+}
+
+/* Content Section */
+.content-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 6rem;
+    gap: 2rem;
+}
+
+.content-section .content,
+.content-section .image {
+    width: 100%;
+}
+
+.content-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Additional Features Section */
+.additional-features h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.additional-features {
+    padding-inline: 11rem;
+    margin-bottom: 10rem;
+}
+
+.features-container {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    justify-content: space-evenly;
+}
+
+.feature {
+    background-color: #2d3748;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.feature h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Footer */
+footer {
+    background-color: #2d3748;
+    padding: 2.5rem 0;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+    .content-section {
+        flex-direction: row;
+        gap: 7rem;
+    }
+    .content-section:nth-child(odd) {
+        flex-direction: row-reverse;
+    }
+    .content-section .content,
+    .content-section .image {
+        width: 50%;
+    }
+    .features-container {
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 17%;
+    }
+    .feature {
+        width: 48%;
+    }
+    .image.sqlconsole {
+        max-width: 45%;
+    }
+}
+</style>
