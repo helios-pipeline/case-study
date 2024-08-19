@@ -5,6 +5,7 @@ export default defineConfig({
   description: "case study - Helios data stream analysis platform",
   cleanUrls: true,
   base: '/',
+  head: [['link', { rel: 'icon', href: '/helios_favicon.ico' }]],
   themeConfig: {
     nav: [{ text: "Home", link: "/" }],
     sidebar: {
