@@ -21,3 +21,7 @@
 .tippy-arrow {
   color: #213547;
 }
+
+.outline-link {
+  white-space: wrap !important;
+}
