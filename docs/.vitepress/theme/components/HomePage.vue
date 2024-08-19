@@ -1,6 +1,6 @@
 <script>
-import './stars.scss'
-import './cursor.css'
+import '../styles/stars.scss'
+import '../styles/cursor.css'
 
 export default {
   name: 'HeliosLanding',
