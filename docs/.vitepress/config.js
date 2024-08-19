@@ -6,6 +6,7 @@ export default defineConfig({
   cleanUrls: true,
   base: '/',
   head: [['link', { rel: 'icon', href: '/helios_favicon.ico' }]],
+  appearance: false,
   themeConfig: {
     nav: [{ text: "Home", link: "/" }],
     sidebar: {
