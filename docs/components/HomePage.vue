@@ -306,7 +306,8 @@ main::after {
     aspect-ratio: 1/1;
     background-image: url('../images/trail.png');
     background-position: center;
-    background-size: cover;
+    background-size: contain;
+    background-repeat: no-repeat;
     z-index: -1;
 }
 
