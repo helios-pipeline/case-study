@@ -22,6 +22,9 @@ export default defineConfig({
         { text: "References", link: "/references" },
       ],
     },
+    outline: {
+      level: [2, 3],
+    },
     socialLinks: [
       { icon: "github", link: "https://github.com/helios-pipeline/deploy" },
     ],
