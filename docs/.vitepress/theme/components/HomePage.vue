@@ -88,13 +88,14 @@ export default {
     <div id="stars3"></div>
     <div class="body">
       <header>
-          <div class="logo">Helios</div>
-          <nav>
-              <ul>
-                  <li><a href="/introduction">Case Study</a></li>
-                  <li><a href="https://github.com/helios-pipeline/deploy">GitHub</a></li>
-              </ul>
-          </nav>
+        <div class="logo">Helios</div>
+        <nav>
+          <ul>
+            <li><a href="/about-us">Team</a></li>
+            <li><a href="/introduction">Case Study</a></li>
+            <li><a href="https://github.com/helios-pipeline/deploy">GitHub</a></li>
+          </ul>
+        </nav>
       </header>
       <main>
         <section class="hero">
