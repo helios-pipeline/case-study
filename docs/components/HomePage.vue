@@ -107,7 +107,7 @@ export default {
           <button>View Case Study</button>
         </section>
         <section class="content-section">
-          <img class="box image sqlconsole" src="./sqlconsole.png">
+          <img class="box image sqlconsole" src="../images/sqlconsole.png">
         </img>
           <div class="content">
             <h2>Real-time SQL querying</h2>
@@ -115,14 +115,14 @@ export default {
           </div>
         </section>
         <section class="content-section kinesis">
-          <img class="box image kinesis-img" src="./kinesis.png">
+          <img class="box image kinesis-img" src="../images/kinesis.png">
           <div class="content">
             <h2>Built-in Amazon Kinesis Integration</h2>
             <p>Link your existing Kinesis streams to the Helios infrastructure.</p>
           </div>
         </section>
         <section class="content-section cli">
-          <img class="box image" src="./terminal.png">
+          <img class="box image" src="../images/terminal.png">
           </img>
           <div class="content">
             <h2>Automated Deployment</h2>
@@ -130,10 +130,9 @@ export default {
           </div>
         </section>
         <section class="additional-features">
-          <h2>And more flavorfully flavored flavors from flavortown...🏘️</h2>
           <div class="features-container">
-            <div><img class="box image image-card" src="./quarantinetable.png"></div>
-            <div><img class="box image image-card" src="./ai_error.png"></div>
+            <div><img class="box image image-card" src="../images/quarantinetable.png"></div>
+            <div><img class="box image image-card" src="../images/ai_error.png"></div>
           </div>
         </section>
       </main>
@@ -244,7 +243,7 @@ main {
     left: -20%;
     width: 130%;
     height: 1000px;
-    background-image: url('./blur1.png');
+    background-image: url('../images/blur1.png');
     background-position: center;
     background-size: cover;
     z-index: -1;
@@ -265,7 +264,7 @@ main {
     left: 0;
     width: 100%;
     height: 300px;
-    background-image: url('./blur2.png');
+    background-image: url('../images/blur2.png');
     background-position: center;
     background-size: cover;
     z-index: -1;
@@ -291,7 +290,7 @@ section.content-section.cli {
     left: 60px;
     width: 100%;
     height: 500px;
-    background-image: url('./blur3.png');
+    background-image: url('../images/blur3.png');
     background-position: center;
     background-size: cover;
     z-index: -1;
@@ -302,10 +301,10 @@ main::after {
     content: "";
     position: absolute;
     top: 800px;
-    left: 35px;
-    width: 100%;
+    left: 15px;
+    width: 98%;
     aspect-ratio: 1/1;
-    background-image: url('./trail.png');
+    background-image: url('../images/trail.png');
     background-position: center;
     background-size: cover;
     z-index: -1;
@@ -379,7 +378,6 @@ button:hover {
     display: flex;
     flex-direction: column;
     gap: 3rem;
-    justify-content: space-evenly;
 }
 
 .feature {
