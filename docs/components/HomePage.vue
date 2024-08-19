@@ -102,27 +102,27 @@ export default {
           <p>
             Helios is an open-source platform designed to simplify the
             visualization and analysis of real-time event streams by exposing data
-            for SQL querying
+            for SQL querying.
           </p>
-          <button>Try Helios</button>
+          <button>View Case Study</button>
         </section>
         <section class="content-section">
           <img class="box image sqlconsole" src="./sqlconsole.png">
         </img>
           <div class="content">
             <h2>Real-time SQL querying</h2>
-            <p>Run SQL queries directly on your ingested data in real-time</p>
+            <p>Run SQL queries directly on your ingested data in real-time.</p>
           </div>
         </section>
         <section class="content-section kinesis">
-          <img class="box image kinesis-img" src="./Group 633044.png">
+          <img class="box image kinesis-img" src="./kinesis.png">
           <div class="content">
             <h2>Built-in Amazon Kinesis Integration</h2>
-            <p>Link your existing Kinesis streams to the Helios infrastructure</p>
+            <p>Link your existing Kinesis streams to the Helios infrastructure.</p>
           </div>
         </section>
         <section class="content-section cli">
-          <img class="box image" src="./Group 633047.png">
+          <img class="box image" src="./terminal.png">
           </img>
           <div class="content">
             <h2>Automated Deployment</h2>
