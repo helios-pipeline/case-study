@@ -370,8 +370,8 @@ button:hover {
 }
 
 .additional-features {
-    padding-inline: 11rem;
-    margin-bottom: 10rem;
+  margin-inline: 20%;
+  margin-bottom: 10rem;
 }
 
 .features-container {
@@ -421,6 +421,10 @@ footer {
     }
     .feature {
         width: 48%;
+    }
+    .additional-features {
+        padding-inline: 11rem;
+        margin-inline: 0;
     }
     .image.sqlconsole {
         max-width: 45%;
