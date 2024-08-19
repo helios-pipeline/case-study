@@ -104,7 +104,7 @@ export default {
             visualization and analysis of real-time event streams by exposing data
             for SQL querying.
           </p>
-          <button>View Case Study</button>
+          <a href="/introduction">View Case Study</a>
         </section>
         <section class="content-section">
           <img class="box image sqlconsole" src="/sqlconsole.png">
