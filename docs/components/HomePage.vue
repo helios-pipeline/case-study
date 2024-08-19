@@ -1,4 +1,5 @@
 <script>
+import './stars.scss'
 import './cursor.css'
 
 export default {
