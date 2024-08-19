@@ -1,0 +1,1 @@
+import{_ as e,c as a,o as r,a2 as t}from"./chunks/framework.BJvAGJ4I.js";const f=JSON.parse('{"title":"References","description":"","frontmatter":{},"headers":[],"relativePath":"references.md","filePath":"references.md"}'),i={name:"references.md"},o=t("",2),s=[o];function l(n,c,d,h,m,p){return r(),a("div",null,s)}const w=e(i,[["render",l]]);export{f as __pageData,w as default};
