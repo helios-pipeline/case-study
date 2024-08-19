@@ -1,10 +1,7 @@
 ---
-layout: doc
-
-hero:
-  name: "Helios Case Study"
-  text: "Event stream analysis platform"
-title: Introduction
+layout: false
 ---
-
-# Helio Case Study
+<script setup>
+import HomePage from './components/HomePage.vue'
+</script>
+<HomePage />
