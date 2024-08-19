@@ -1,3 +1,81 @@
+<script>
+import './cursor.css'
+
+export default {
+  name: 'HeliosLanding',
+  data() {
+    return {
+      mouseX: 0,
+      mouseY: 0,
+      cursorX: 0,
+      cursorY: 0,
+      isOverActiveArea: false,
+      hideTimeout: null
+    }
+  },
+  mounted() {
+    document.addEventListener('mousemove', this.handleMouseMove);
+    document.addEventListener('mouseenter', this.handleMouseEnter, true);
+    document.addEventListener('mouseleave', this.handleMouseLeave, true);
+    this.animateCursor();
+  },
+  beforeUnmount() {
+    document.removeEventListener('mousemove', this.handleMouseMove);
+    document.removeEventListener('mouseenter', this.handleMouseEnter, true);
+    document.removeEventListener('mouseleave', this.handleMouseLeave, true);
+    cancelAnimationFrame(this.animationFrame);
+    clearTimeout(this.hideTimeout);
+  },
+  methods: {
+    handleMouseMove(e) {
+      this.mouseX = e.clientX;
+      this.mouseY = e.clientY;
+      if (this.isOverActiveArea) {
+        this.showCursor();
+      }
+    },
+    handleMouseEnter(e) {
+      if (e.target && e.target.matches('header, main')) {
+        this.isOverActiveArea = true;
+        this.showCursor();
+      }
+    },
+    handleMouseLeave(e) {
+      if (e.target && e.target.matches('header, main')) {
+        this.isOverActiveArea = false;
+        this.hideCursor();
+      }
+    },
+    animateCursor() {
+      const easing = 0.15;
+      this.cursorX += (this.mouseX - this.cursorX) * easing;
+      this.cursorY += (this.mouseY - this.cursorY) * easing;
+
+      const cursorElement = document.querySelector(".cursor-element");
+      if (cursorElement) {
+        cursorElement.style.transform = `translate(${this.cursorX}px, ${this.cursorY}px)`;
+      }
+      this.animationFrame = requestAnimationFrame(this.animateCursor);
+    },
+    showCursor() {
+      const cursorGlow = document.querySelector(".cursor-glow");
+      cursorGlow?.classList.add("active");
+      clearTimeout(this.hideTimeout);
+      this.hideTimeout = setTimeout(() => {
+        if (this.isOverActiveArea) {
+          cursorGlow?.classList.remove("active");
+        }
+      }, 2000);
+    },
+    hideCursor() {
+      const cursorGlow = document.querySelector(".cursor-glow");
+      cursorGlow?.classList.remove("active");
+      clearTimeout(this.hideTimeout);
+    }
+  }
+}
+</script>
+
 <template>
   <div class="cursor-element">
       <div class="cursor-glow"></div>

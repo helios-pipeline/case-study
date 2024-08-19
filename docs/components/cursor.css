@@ -1,0 +1,76 @@
+.cursor-element, .cursor-element * {
+  pointer-events: none;
+}
+
+.cursor-element {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    border-radius: 100%;
+    z-index: 2000;
+}
+
+.cursor-element * {
+    mix-blend-mode: difference;
+}
+
+.cursor-element span {
+    position: fixed;
+    border-radius: 100%;
+    background: transparent;
+    opacity: 0.3;
+    width: 40px;
+    height: 40px;
+    display: block;
+    z-index: 2000;
+    transition: 0.62s;
+    transform: translateX(-50%) translateY(-50%);
+    transform-origin: top left;
+    transition-timing-function: cubic-bezier(.19,.58,.58,.93);
+}
+
+.cursor-glow {
+    position: fixed;
+    pointer-events: none;
+    width: 100px;
+    height: 100px;
+    background: #FFF059;
+    border-radius: 100%;
+    z-index: 1000;
+    opacity: 0;
+    transform: scale(1) translateX(-50%) translateY(-50%);
+    transform-origin: top left;
+    filter: blur(32px);
+    transition: all 0.64s, opacity 0.6s, width 0.68s, height 0.68s, left 0s, top 0s;
+    transition-timing-function: cubic-bezier(.19,.58,.58,.93);
+    transition-delay: 0.2s;
+}
+
+.cursor-glow.active {
+    filter: blur(22px);
+    z-index: 1000;
+    width: 32px;
+    height: 32px;
+    opacity: 0.5;
+    transition-delay: 0s;
+    transition: all 1s, opacity 1.24s, width 0.6s, height 0.6s, left 0s, top 0s;
+}
+
+.cursor-glow.active + span {
+    background: #FFF059;
+    z-index: 1000;
+    opacity: 0.82;
+    transform: scale(0.42) translateX(-50%) translateY(-50%);
+    box-shadow: 0px 0px 24px rgba(2,2,2,0.1);
+    transition: 0.32s ease;
+    transition-delay: 0.08s;
+}
+
+@keyframes hue-rotate {
+    from {
+        filter: hue-rotate(0);
+    }
+    to {
+        filter: hue-rotate(360deg);
+    }
+}
