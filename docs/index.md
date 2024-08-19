@@ -2,6 +2,6 @@
 layout: false
 ---
 <script setup>
-import HomePage from './components/HomePage.vue'
+import HomePage from '.vitepress/theme/components/HomePage.vue'
 </script>
 <HomePage />
