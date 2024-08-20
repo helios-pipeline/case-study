@@ -72,11 +72,11 @@ export default {
     const databases = ref(['ClickHouse', 'Pinot', 'Elasticsearch', 'MongoDB', 'PostgreSQL']);
     const queries = ref([
       {
-        question: "How many hits were driven by advertising?",
+        question: "How many page views were driven by advertising?",
         text: 'SELECT COUNT(*) FROM hits WHERE AdvEngineID <> 0;'
       },
       {
-        question: "What's the total ad impact, hit count, and average screen width?",
+        question: "What's the total ad impact, page view count, and average screen width?",
         text: 'SELECT SUM(AdvEngineID), COUNT(*), AVG(ResolutionWidth) FROM hits;'
       },
       {
@@ -88,7 +88,7 @@ export default {
         text: 'SELECT RegionID, COUNT(DISTINCT UserID) AS u FROM hits GROUP BY RegionID ORDER BY u DESC LIMIT 10;'
       },
       {
-        question: "What are the top 10 search phrases from Google?",
+        question: "What are the top 10 search phrases leading to Google-related URLs?",
         text: 'SELECT SearchPhrase, MIN(URL), COUNT(*) AS c FROM hits WHERE URL LIKE \'%google%\' AND SearchPhrase <> \'\' GROUP BY SearchPhrase ORDER BY c DESC LIMIT 10;'
       }
     ]);
