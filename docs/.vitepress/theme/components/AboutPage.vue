@@ -292,7 +292,7 @@ header {
 .team-member {
     max-width: 350px;
     width: 100%;
-    background-color: #2d3748;
+    background-color: hsl(217.78deg 23.08% 22.94% / 70%);
     padding: 1.5rem;
     margin: 0.5rem;
     border-radius: 0.5rem;
@@ -327,22 +327,11 @@ header {
     justify-content: space-around;
 }
 
-
-.team-member a {
-    color: #b67bf1;
-    text-decoration: none;
-}
-
 .team-member p .icons {
     width: 32px;
     height: 32px;
     margin: 0 10px;
     vertical-align: middle;
-}
-
-.team-member a:hover {
-    color: #eea011;
-    text-decoration: underline;
 }
 
 @media (max-width: 1300px) {
