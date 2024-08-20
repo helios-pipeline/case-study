@@ -94,7 +94,7 @@ export default {
           <ul>
             <li><a href="/case-study/about-us">Team</a></li>
             <li><a href="/case-study/introduction">Case Study</a></li>
-            <li><a href="https://github.com/helios-pipeline/deploy">GitHub</a></li>
+            <li><a href="https://github.com/helios-pipeline/deploy"><img src="/home/github-icon.png" /></a></li>
           </ul>
         </nav>
       </header>
