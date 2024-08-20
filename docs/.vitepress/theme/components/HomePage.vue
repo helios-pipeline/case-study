@@ -88,7 +88,8 @@ export default {
     <div id="stars3"></div>
     <div class="body">
       <header>
-        <div class="logo">Helios</div>
+        <!-- <div class="logo">Helios</div> -->
+        <img class="logo" src="/home/helios_icon_white.png">
         <nav>
           <ul>
             <li><a href="/case-study/about-us">Team</a></li>
@@ -101,9 +102,7 @@ export default {
         <section class="hero">
           <h1>Helios</h1>
           <p>
-            Helios is an open-source platform designed to simplify the
-            visualization and analysis of real-time event streams by exposing data
-            for SQL querying.
+            An open-source, real-time query platform for visualizing and analyzing event streams.
           </p>
           <button>View Case Study</button>
         </section>
@@ -123,8 +122,6 @@ export default {
           </div>
         </section>
         <section class="content-section cli">
-          <!-- <img class="box image" src="/home/terminal.png">
-          </img> -->
           <video class="video" width="500" height="500" autoplay loop muted>
             <source src="/home/helios-cli.mp4" type="video/mp4">
           </video>
@@ -147,7 +144,7 @@ export default {
 <style scoped>
 /* General Body */
 .body {
-    font-family: 'Lato', Arial, sans-serif;
+    font-family: 'Manrope', Arial, sans-serif;
     background-color: #1a202c;
     color: #ffffff;
     margin: 0;
@@ -174,6 +171,9 @@ header {
 .logo {
     font-size: 1.5rem;
     font-weight: bold;
+    /* position: absolute; */
+    width: 70px;
+    height: 70px;
 }
 
 /* Navigation */
@@ -321,8 +321,8 @@ main::after {
 
 /* Hero Text */
 .hero h1 {
-    font-size: clamp(2.5rem, 0.3125rem + 3.75vw, 6rem);
-    font-weight: 600;
+    font-size: clamp(3rem, 4.5vw, 5rem);
+    font-weight: 700;
     margin-bottom: 1rem;
     opacity: var(--sds-size-stroke-border);
     padding: 2.5rem;
