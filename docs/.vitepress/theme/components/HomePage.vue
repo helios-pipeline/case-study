@@ -244,7 +244,7 @@ main {
     left: -20%;
     width: 130%;
     height: 1000px;
-    background-image: url('home/blur1.png');
+    background-image: url('/blur1.png');
     background-position: center;
     background-size: cover;
     z-index: -1;
@@ -265,7 +265,7 @@ main {
     left: 0;
     width: 100%;
     height: 300px;
-    background-image: url('home/blur2.png');
+    background-image: url('/blur2.png');
     background-position: center;
     background-size: cover;
     z-index: -1;
@@ -291,7 +291,7 @@ section.content-section.cli {
     left: 60px;
     width: 100%;
     height: 500px;
-    background-image: url('home/blur3.png');
+    background-image: url('/blur3.png');
     background-position: center;
     background-size: cover;
     z-index: -1;
@@ -305,7 +305,7 @@ main::after {
     left: 15px;
     width: 98%;
     aspect-ratio: 1/1;
-    background-image: url('home/trail.png');
+    background-image: url('/trail.png');
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
