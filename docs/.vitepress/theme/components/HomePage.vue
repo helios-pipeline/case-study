@@ -36,13 +36,13 @@ export default {
       }
     },
     handleMouseEnter(e) {
-      if (e.target && e.target.matches('header, main')) {
+      if (e && e.target && typeof e.target.matches === 'function' && e.target.matches('header, main')) {
         this.isOverActiveArea = true;
         this.showCursor();
       }
     },
     handleMouseLeave(e) {
-      if (e.target && e.target.matches('header, main')) {
+      if (e && e.target && typeof e.target.matches === 'function' && e.target.matches('header, main')) {
         this.isOverActiveArea = false;
         this.hideCursor();
       }
@@ -51,7 +51,6 @@ export default {
       const easing = 0.15;
       this.cursorX += (this.mouseX - this.cursorX) * easing;
       this.cursorY += (this.mouseY - this.cursorY) * easing;
-
       const cursorElement = document.querySelector(".cursor-element");
       if (cursorElement) {
         cursorElement.style.transform = `translate(${this.cursorX}px, ${this.cursorY}px)`;
@@ -83,6 +82,7 @@ export default {
       <span></span>
   </div>
   <div class="star-animation-container">
+    <div class="bar"></div>
     <div id="stars"></div>
     <div id="stars2"></div>
     <div id="stars3"></div>
@@ -94,7 +94,7 @@ export default {
           <ul>
             <li><a href="/case-study/about-us">Team</a></li>
             <li><a href="/case-study/introduction">Case Study</a></li>
-            <li><a href="https://github.com/helios-pipeline/deploy">GitHub</a></li>
+            <li><a href="https://github.com/helios-pipeline/deploy"><img src="/home/github-icon.png" /></a></li>
           </ul>
         </nav>
       </header>
@@ -104,7 +104,7 @@ export default {
           <p>
             An open-source, real-time query platform for visualizing and analyzing event streams.
           </p>
-          <button>View Case Study</button>
+          <button><a href="/introduction">View Case Study</a></button>
         </section>
         <section class="content-section">
           <img class="box image sqlconsole" src="/home/sqlconsole.png">
@@ -122,9 +122,11 @@ export default {
           </div>
         </section>
         <section class="content-section cli">
-          <video class="video" width="500" height="500" autoplay loop muted>
-            <source src="/home/helios-cli.mp4" type="video/mp4">
-          </video>
+          <div class="video-container">
+            <video class="video" width="500" height="500" autoplay loop muted>
+              <source src="/home/helios-cli.mp4" type="video/mp4">
+            </video>
+          </div>
           <div class="content">
             <h2>Automated Deployment</h2>
             <p>Helios CLI configures Helios deployment with AWS credentials, deploys the entire Helios stack to AWS using a single command, and destroys the stack when needed.</p>
@@ -181,6 +183,7 @@ nav ul {
     display: flex;
     list-style-type: none;
     padding: 0;
+    align-items: center;
 }
 
 nav ul li {
@@ -191,10 +194,29 @@ nav ul li a {
     color: whitesmoke;
     text-decoration: none;
     font-size: 1.3rem;
+    padding-inline: 0.75rem;
 }
 
 nav ul li a:hover {
     color: #c4b5fd;
+}
+
+nav ul li:last-child a {
+  padding-right: 0;
+  display: flex;
+}
+
+nav ul li:last-child a img {
+  width: 2rem;
+  height: 2rem;
+}
+
+.bar {
+    height: 6px;
+    width: 100%;
+    position: absolute;
+    background: rgb(174,236,123);
+    background: linear-gradient(75deg, rgba(174,236,123,0.7679446778711485) 0%, rgba(51,158,205,1) 50%, rgba(175,38,203,0.8547794117647058) 100%);
 }
 
 /* Main Content */
@@ -302,7 +324,24 @@ section.content-section.cli {
 
 .cli .video {
   border-radius: 10px;
-  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.video-container {
+  position: relative;
+  transform: translateX(5%) scale(0.9);
+}
+
+.video-container::after {
+  content: '';
+  height: 100%;
+  width: 100%;
+  background-color: #4fb5d754;
+  position: absolute;
+  top: 13%;
+  left: -10%;
+  z-index: -10;
+  border-radius: 10px;
+  background: linear-gradient(75deg, rgb(51 145 205 / 38%) 0%, rgb(38 197 203 / 0%) 100%);
 }
 /* Main Background Trail */
 main::after {
@@ -360,6 +399,10 @@ button:hover {
     align-items: center;
     margin-bottom: 6rem;
     gap: 2rem;
+}
+
+.content-section.cli {
+    gap: 4rem;
 }
 
 .content-section .content,

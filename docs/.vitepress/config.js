@@ -5,6 +5,8 @@ export default defineConfig({
   description: "case study - Helios data stream analysis platform",
   cleanUrls: true,
   base: '/case-study/',
+  head: [['link', { rel: 'icon', href: '/case-study/helios_favicon.ico' }]],
+  appearance: false,
   themeConfig: {
     nav: [{ text: "Home", link: "/" }],
     sidebar: {
@@ -24,7 +26,7 @@ export default defineConfig({
       level: [2, 3],
     },
     socialLinks: [
-      { icon: "github", link: "https://github.com/vuejs/vitepress" },
+      { icon: "github", link: "https://github.com/helios-pipeline/deploy" },
     ],
   },
   vite: {
