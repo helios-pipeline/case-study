@@ -22,8 +22,9 @@
     "@fortawesome/free-regular-svg-icons": "^6.6.0",
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
     "@fortawesome/vue-fontawesome": "^3.0.8",
+    "@heroicons/vue": "^2.1.5",
     "prismjs": "^1.29.0",
-    "vue-tippy": "^6.4.4",
-    "sass": "^1.77.8"
+    "sass": "^1.77.8",
+    "vue-tippy": "^6.4.4"
   }
 }
