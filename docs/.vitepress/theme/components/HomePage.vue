@@ -91,8 +91,8 @@ export default {
         <div class="logo">Helios</div>
         <nav>
           <ul>
-            <li><a href="/about-us">Team</a></li>
-            <li><a href="/introduction">Case Study</a></li>
+            <li><a href="/case-study/about-us">Team</a></li>
+            <li><a href="/case-study/introduction">Case Study</a></li>
             <li><a href="https://github.com/helios-pipeline/deploy">GitHub</a></li>
           </ul>
         </nav>

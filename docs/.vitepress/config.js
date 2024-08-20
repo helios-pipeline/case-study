@@ -4,7 +4,7 @@ export default defineConfig({
   title: "Helios Case Study",
   description: "case study - Helios data stream analysis platform",
   cleanUrls: true,
-  base: '/',
+  base: '/case-study/',
   themeConfig: {
     nav: [{ text: "Home", link: "/" }],
     sidebar: {
