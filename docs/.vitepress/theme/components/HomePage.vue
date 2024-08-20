@@ -92,9 +92,10 @@ export default {
         <img class="logo" src="/home/helios_icon_white.png">
         <nav>
           <ul>
+            <li><a href="/">Home</a></li>
             <li><a href="/about-us">Team</a></li>
             <li><a href="/introduction">Case Study</a></li>
-            <li><a href="https://github.com/helios-platform"><img src="/home/github-icon.png" /></a></li>
+            <li><a href="https://github.com/helios-platform" target="_blank"><img src="/home/github-icon.png" /></a></li>
           </ul>
         </nav>
       </header>

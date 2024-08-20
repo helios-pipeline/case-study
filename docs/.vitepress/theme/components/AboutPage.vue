@@ -125,8 +125,9 @@ export default {
         <nav>
           <ul>
             <li><a href="/">Home</a></li>
+            <li><a href="/about-us">Team</a></li>
             <li><a href="/introduction">Case Study</a></li>
-            <li><a href="https://github.com/helios-platform"><img src="/home/github-icon.png" /></a></li>
+            <li><a href="https://github.com/helios-platform" target="_blank"><img src="/home/github-icon.png" /></a></li>
           </ul>
         </nav>
       </header>
@@ -195,7 +196,7 @@ export default {
 
 <style scoped>
 .body {
-    font-family: 'Lato', Arial, sans-serif;
+    font-family: 'Manrope', Arial, sans-serif;
     background-color: #1a202c;
     color: #ffffff;
     margin: 0;
@@ -277,7 +278,7 @@ header {
 .about-us h1 {
     margin-bottom: 2rem;
     font-size: 2.5rem;
-    font-weight: 900;
+    font-weight: 700;
 }
 
 .team-members {
