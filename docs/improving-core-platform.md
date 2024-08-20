@@ -4,7 +4,7 @@ Below we detail the problems we encountered and the solutions we implemented to 
 
 ## Quarantine Tables
 
-![Quarantine Arch](public/case_study/full_storage_highlight.png)
+![Quarantine Arch](/case_study/full_storage_highlight.png)
 
 The initial version of Helios lacked error handling for failed database insertion of event records within the Lambda connector, potentially leading to data loss and difficult to parse error messages. To address this, we implemented a comprehensive error handling and data quarantine system. Here is a list of the key functionality we implemented:
 
@@ -13,7 +13,9 @@ The initial version of Helios lacked error handling for failed database insertio
 3. Data Preservation: The data that fails to insert into the main table is then stored in a separate quarantine table along with the error summary details. This ensures no data loss and allows users to quickly examine the exact records that failed to insert.
 4. AI Summary: For users who provide a ChatGPT AI key during deployment, we've integrated an AI-powered feature to enhance the error analysis process. This feature leverages a custom ChatGPT system prompt to summarize and interpret the errors stored in the quarantine table, significantly aiding users in their debugging efforts.
 
-\[Image of quarantine table \- needs css done first\]
+<video width="650" height="400" controls autoplay loopo>
+ <source src="/case_study/quartable.mp4" type="video/mp4">
+</video>
 
 These enhancements collectively improve Helios’ error handling, while providing tools for error analysis and resolution.
 
@@ -25,7 +27,7 @@ To improve Helios' performance and efficiency, we implemented several optimizati
 
 Our initial Connector function processed Kinesis records in small batches of 10\. We optimized this by increasing the maximum batch size to 100 records and setting a batch window of one second.
 
-![Batch Size](public/case_study/stream_efficiency.png)
+![Batch Size](/case_study/stream_efficiency.png)
 
 This change significantly reduces Lambda invocations, leading to less overhead and improved cost efficiency. Larger batches also enhance overall throughput and make better use of allocated resources. The one-second window ensures a balance between efficiency and near real-time processing, as records are sent when either the batch size is reached or the time window expires.
 
@@ -35,7 +37,7 @@ These optimizations improve system performance while reducing costs for users, a
 
 Parallelization in the context of Lambdas means that multiple Lambda instances can be run at the same time. By default, the Lambda parallelization factor is set to 1\. This means that only one Lambda instance can be a trigger for one Kinesis <TippyWrapper content="A shard is a unit of capacity within a Kinesis stream that provides a fixed amount of data throughput and serves as a partition for organizing events.">shard</TippyWrapper>. We adjusted this setting to 10, allowing up to 10 Lambda instances to process data from a single Kinesis shard simultaneously. This significantly improves our ingestion capacity and scalability, increasing our system's ability to handle high-volume data streams quickly and efficiently.
 
-![Parallelization](public/case_study/lambdakinesislimit.png)
+![Parallelization](/case_study/lambdakinesislimit.png)
 
 ### Caching DynamoDB requests
 
@@ -45,7 +47,7 @@ Our caching strategy ensures that subsequent invocations of the same Lambda inst
 
 ## Database Backups
 
-![Database Arch](public/case_study/full_backup_highlight.png)
+![Database Arch](/case_study/full_backup_highlight.png)
 
 In the first iteration of Helios, the ClickHouse database lacked backup capabilities. For instance, if the EC2 went down, our data would not be recoverable. Addressing this vulnerability was a critical improvement for version two.
 
@@ -53,7 +55,7 @@ As part of our backup strategy, we integrated an Amazon S3 (Simple Storage Servi
 
 The backup cron job process is automated to run daily, capturing a full snapshot of the ClickHouse database and transferring it to the designated S3 bucket.
 
-![Daily Cron Job](public/case_study/dailycjob.png)
+![Daily Cron Job](/case_study/dailycjob.png)
 
 ## Export to CSV
 
@@ -69,4 +71,4 @@ To summarize our core platform improvements, we bolstered the platform with feat
 
 After the above improvements, our final architecture looks like this:
 
-![Full Arch](public/case_study/full_full_color.png)
+![Full Arch](/case_study/full_full_color.png)

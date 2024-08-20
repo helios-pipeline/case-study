@@ -108,6 +108,7 @@ export default {
           <button>View Case Study</button>
         </section>
         <section class="content-section">
+
           <img class="box image sqlconsole" src="/home/sqlconsole.png">
         </img>
           <div class="content">
@@ -123,8 +124,10 @@ export default {
           </div>
         </section>
         <section class="content-section cli">
-          <img class="box image" src="/home/terminal.png">
-          </img>
+          <!-- <img class="box image" src="/home/terminal.png"> -->
+          <video class="video" width="500" height="500" controls autoplay loop>
+            <source src="/home/helios-cli.mp4" type="video/mp4">
+          </video>
           <div class="content">
             <h2>Automated Deployment</h2>
             <p>Helios CLI configures Helios deployment with AWS credentials, deploys the entire Helios stack to AWS using a single command, and destroys the stack when needed.</p>
@@ -295,6 +298,9 @@ section.content-section.cli {
     background-position: center;
     background-size: cover;
     z-index: -1;
+}
+.cli .video {
+  border-radius: 10px;
 }
 
 /* Main Background Trail */

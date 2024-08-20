@@ -12,7 +12,7 @@ How it works:
 - Once credentials are provided, the CLI uses the stored AWS credentials in your local AWS environment configuration files to deploy all Helios infrastructure within your AWS account.
 - Under the hood, Helios leverages the AWS Cloud Development Kit (AWS CDK) which we will go into more detail below.
 
-![CLI](public/case_study/cli_dropshadow.png)
+![CLI](/case_study/cli_dropshadow.png)
 
 ## AWS CDK
 

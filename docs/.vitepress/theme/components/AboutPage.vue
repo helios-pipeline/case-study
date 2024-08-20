@@ -98,36 +98,36 @@ export default {
           </nav>
       </header>
       <main>
-      <section class="about-us">
-        <h1>Meet the Team</h1>
-        <div class="team-members">
-          <div class="team-member">
-            <img src="/about_us/tony.jpeg">
-            <h2>Tony Liao</h2>
-            <p>Email: kuanchiliao@gmail.com</p>
-            <p><a href="https://www.linkedin.com/in/tonyliao1/" target="_blank">LinkedIn</a> | <a href="https://github.com/Kuanchiliao1" target="_blank">GitHub</a></p>
+        <section class="about-us">
+          <h1>Meet the Team</h1>
+          <div class="team-members">
+            <div class="team-member">
+              <img src="/about_us/tony.jpeg">
+              <h2>Tony Liao</h2>
+              <p>Email: kuanchiliao@gmail.com</p>
+              <p><a href="https://www.linkedin.com/in/tonyliao1/" target="_blank">LinkedIn</a> | <a href="https://github.com/Kuanchiliao1" target="_blank">GitHub</a></p>
+            </div>
+            <div class="team-member">
+              <img src="/about_us/james.jpeg">
+              <h2>James Drabinsky</h2>
+              <p>Email: james.drabinsky@gmail.com</p>
+              <p><a href="https://www.linkedin.com/in/jamesdrabinsky/" target="_blank">LinkedIn</a> | <a href="https://github.com/jamesdrabinsky" target="_blank">GitHub</a></p>
+            </div>
+            <div class="team-member">
+              <img src="/about_us/garrett.jpeg">
+              <h2>Garrett Cochran</h2>
+              <p>Email: garrettjcochran@gmail.com</p>
+              <p><a href="https://www.linkedin.com/in/garrett-cochran-80bb0858/" target="_blank">LinkedIn</a> | <a href="https://github.com/gjcochran" target="_blank">GitHub</a></p>
+            </div>
+            <div class="team-member">
+              <img src="/about_us/sean.jpeg">
+              <h2>Sean Powell</h2>
+              <p>Email: b.sean.powell@gmail.com</p>
+              <p><a href="https://www.linkedin.com/in/sean-powell/" target="_blank">LinkedIn</a> | <a href="https://github.com/bspowell" target="_blank">GitHub</a></p>
+            </div>
           </div>
-          <div class="team-member">
-            <img src="/about_us/james.jpeg">
-            <h2>James Drabinsky</h2>
-            <p>Email: james.drabinsky@gmail.com</p>
-            <p><a href="https://www.linkedin.com/in/jamesdrabinsky/" target="_blank">LinkedIn</a> | <a href="https://github.com/jamesdrabinsky" target="_blank">GitHub</a></p>
-          </div>
-          <div class="team-member">
-            <img src="/about_us/garrett.jpeg">
-            <h2>Garrett Cochran</h2>
-            <p>Email: garrettjcochran@gmail.com</p>
-            <p><a href="https://www.linkedin.com/in/garrett-cochran-80bb0858/" target="_blank">LinkedIn</a> | <a href="https://github.com/gjcochran" target="_blank">GitHub</a></p>
-          </div>
-          <div class="team-member">
-            <img src="/about_us/sean.jpeg">
-            <h2>Sean Powell</h2>
-            <p>Email: b.sean.powell@gmail.com</p>
-            <p><a href="https://www.linkedin.com/in/sean-powell/" target="_blank">LinkedIn</a> | <a href="https://github.com/bspowell" target="_blank">GitHub</a></p>
-          </div>
-        </div>
-      </section>
-    </main>
+        </section>
+      </main>
     </div>
   </div>
 </template>
@@ -185,51 +185,6 @@ nav ul li a:hover {
     color: #c4b5fd;
 }
 
-
-/* Hero Section */
-.hero {
-    position: relative;
-    text-align: center;
-    padding: 10rem 0;
-}
-
-
-/* Hero Background */
-.hero::before {
-    content: "";
-    position: absolute;
-    top: -90px;
-    left: -20%;
-    width: 130%;
-    height: 1000px;
-    background-image: url('home/blur1.png');
-    background-position: center;
-    background-size: cover;
-    z-index: -1;
-    pointer-events: none;
-    animation: complexPulse 12s ease-in-out infinite;
-    transform-origin: center;
-}
-
-
-
-/* Hero Text */
-.hero h1 {
-    font-size: clamp(2.5rem, 0.3125rem + 3.75vw, 6rem);
-    font-weight: 600;
-    margin-bottom: 1rem;
-    opacity: var(--sds-size-stroke-border);
-    padding: 2.5rem;
-    background: #365EAB;
-    background: linear-gradient(to top, #365EAB 0%, #F7B655 64%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.hero p {
-    font-size: 1.25rem;
-    margin-bottom: 2rem;
-}
 
 /* About Us Section */
 .about-us {
