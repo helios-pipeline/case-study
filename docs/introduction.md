@@ -113,7 +113,11 @@ At its core, Helios is comprised of:
   <p><Icon name="CommandLineIcon" /><span>Helios CLI: configures Helios deployment with AWS credentials; deploys the entire Helios stack to AWS using a single command; and destroys the stack when needed. We will go into more detail within the Automating Deployment section.</span></p>
 </div>
 
-![CLI](/case_study/cli_dropshadow.png)
+<!-- ![CLI](/case_study/cli_dropshadow.png) -->
+
+<video class="video" width="500" height="500" autoplay loop muted style="border-radius: 5px; box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);">
+  <source src="/home/helios-cli.mp4" type="video/mp4">
+</video>
 
 As with any tool, the suitability of Helios depends on each team's specific requirements, existing infrastructure, and resources. We encourage potential users to evaluate how our offering aligns with their particular needs and constraints.
 
