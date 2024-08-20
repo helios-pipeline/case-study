@@ -202,7 +202,7 @@ nav ul li a:hover {
     left: -20%;
     width: 130%;
     height: 1000px;
-    background-image: url('home/blur1.png');
+    background-image: url('/home/blur1.png');
     background-position: center;
     background-size: cover;
     z-index: -1;

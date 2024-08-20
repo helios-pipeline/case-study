@@ -1,0 +1,1 @@
+import{_ as e,f as t,o as a}from"./chunks/framework.CUAWebCk.js";const _=JSON.parse('{"title":"Helios Case Study","description":"","frontmatter":{"title":"Helios Case Study"},"headers":[],"relativePath":"main.md","filePath":"main.md"}'),s={name:"main.md"};function n(o,r,i,c,m,d){return a(),t("div")}const l=e(s,[["render",n]]);export{_ as __pageData,l as default};
