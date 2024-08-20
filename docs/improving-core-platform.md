@@ -15,7 +15,7 @@ The initial version of Helios lacked error handling for failed database insertio
 <p><Icon name="SparklesIcon"/><span><strong>AI Summary</strong>: For users who provide a ChatGPT AI key during deployment, we've integrated an AI-powered feature to enhance the error analysis process. This feature leverages a custom ChatGPT system prompt to summarize and interpret the errors stored in the quarantine table, significantly aiding users in their debugging efforts.</span></p>
 </div>
 
-<video class="video" width="700" height="400" controls autoplay loop style="border-radius: 5px; box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);">
+<video class="video" width="700" height="400" muted autoplay loop style="border-radius: 5px; box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);">
   <source src="/case_study/quartable.mp4" type="video/mp4">
 </video>
 

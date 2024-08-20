@@ -125,7 +125,7 @@ export default {
         <section class="content-section cli">
           <!-- <img class="box image" src="/home/terminal.png">
           </img> -->
-          <video class="video" width="500" height="500" controls autoplay loop>
+          <video class="video" width="500" height="500" autoplay loop muted>
             <source src="/home/helios-cli.mp4" type="video/mp4">
           </video>
           <div class="content">
