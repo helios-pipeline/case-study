@@ -36,13 +36,13 @@ export default {
       }
     },
     handleMouseEnter(e) {
-      if (e.target && e.target.matches('header, main')) {
+      if (e && e.target && typeof e.target.matches === 'function' && e.target.matches('header, main')) {
         this.isOverActiveArea = true;
         this.showCursor();
       }
     },
     handleMouseLeave(e) {
-      if (e.target && e.target.matches('header, main')) {
+      if (e && e.target && typeof e.target.matches === 'function' && e.target.matches('header, main')) {
         this.isOverActiveArea = false;
         this.hideCursor();
       }
@@ -51,7 +51,6 @@ export default {
       const easing = 0.15;
       this.cursorX += (this.mouseX - this.cursorX) * easing;
       this.cursorY += (this.mouseY - this.cursorY) * easing;
-
       const cursorElement = document.querySelector(".cursor-element");
       if (cursorElement) {
         cursorElement.style.transform = `translate(${this.cursorX}px, ${this.cursorY}px)`;
