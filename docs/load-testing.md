@@ -60,9 +60,11 @@ We implemented a monitoring system that tracks:
 
 Our primary objectives for these tests were:
 
-1. Maintain consistent ingestion rates and measure end-to-end latency from event generation to availability for querying, aiming to stay under 30 seconds for full event availability.
-2. Evaluate end-to-end query response times under continuous high-volume data insertions _(particularly relevant to our e-commerce example as it simulates the ability to compute real-time metrics like conversion rates while the system continues to ingest new user events.)_
-3. Identify potential bottlenecks in our data processing pipeline.
+<div class="icon-list">
+<p><Icon name="ClockIcon" /><span>Maintain consistent ingestion rates and measure end-to-end latency from event generation to availability for querying, aiming to stay under 30 seconds for full event availability.</span></p>
+<p><Icon name="BoltIcon" /><span>Evaluate end-to-end query response times under continuous high-volume data insertions _(particularly relevant to our e-commerce example as it simulates the ability to compute real-time metrics like conversion rates while the system continues to ingest new user events.)_</span></p>
+<p><Icon name="FunnelIcon" /><span>Identify potential bottlenecks in our data processing pipeline.</span></p>
+</div>
 
 ## Results
 

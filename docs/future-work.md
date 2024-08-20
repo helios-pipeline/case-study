@@ -6,8 +6,10 @@ The introduction of API endpoints in Helios would significantly enhance user cap
 
 ### Use Cases
 
-1. Real-time Dashboards: Endpoints can be integrated with visualization tools like Grafana.
-2. Data Integration: Other applications can easily incorporate Helios data into their workflows without having to use our console.
+<div class="icon-list">
+<p><Icon name="PresentationChartLineIcon" /><span><strong>Real-time Dashboards</strong>: Endpoints can be integrated with visualization tools like Grafana.</span></p>
+<p><Icon name="PuzzlePieceIcon" /><span><strong>Data Integration</strong>: Other applications can easily incorporate Helios data into their workflows without having to use our console.</span></p>
+</div>
 
 ## Supporting Materialized Views
 
@@ -27,13 +29,24 @@ Our initial release supports data ingestion solely through Amazon Kinesis. While
 
 Future versions of Helios could expand support for additional streaming platforms. To address this, we've outlined an approach to expand our data ingestion capabilities:
 
-- Apache Kafka Integration: As the industry leader, Kafka integration is our top priority. We'll approach this in two stages:
-  - Amazon MSK Integration: We'll first support Amazon Managed Service for Apache Kafka, leveraging our existing Lambda function logic.
-  - Direct Kafka Support: Following this, we'll re-architect our Lambda Connector function for direct Kafka integration.
-- Additional Platforms: After Kafka, we would extend support to other popular streaming platforms, including:
-  - Google Pub/Sub
-  - Redpanda
-  - Confluent _(a popular Kafka managed service)_
+1. Apache Kafka Integration: As the industry leader, Kafka integration is our top priority. We'll approach this in two stages:
+
+   - Amazon MSK Integration: We'll first support Amazon Managed Service for Apache Kafka, leveraging our existing Lambda function logic
+   - Direct Kafka Support: Following this, we'll re-architect our Lambda Connector function for direct Kafka integration.
+     <!-- <div class="icon-list"> -->
+     <!-- <p><Icon name="aws-icon" /><span>Amazon MSK Integration: We'll first support Amazon Managed Service for Apache Kafka, leveraging our existing Lambda function logic</span></p> -->
+     <!-- <p><Icon name="kafka-icon" /><span>Direct Kafka Support: Following this, we'll re-architect our Lambda Connector function for direct Kafka integration.</span></p> -->
+     <!-- </div> -->
+
+2. Additional Platforms: After Kafka, we would extend support to other popular streaming platforms, including:
+   - Google Pub/Sub
+   - Redpanda
+   - Confluent _(a popular Kafka managed service)_
+     <!-- <div class="icon-list"> -->
+     <!-- <p><Icon name="gcp-icon" /><span>Google Pub/Sub</span></p> -->
+     <!-- <p><Icon name="" /><span>Redpanda</span></p> -->
+     <!-- <p><Icon name="" /><span>Confluent _(a popular Kafka managed service)_</span></p> -->
+     <!-- </div> -->
 
 This expansion will require a number of changes to our current implementation. Our existing serverless function, which ingests data from Kinesis and inserts it into ClickHouse DB, relies on AWS Lambda Triggers.
 
