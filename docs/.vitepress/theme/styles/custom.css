@@ -1,7 +1,7 @@
 .tippy-trigger {
   border-bottom: 1px dotted #3eaf7c;
+  background-color: rgba(62, 175, 124, 0.25);
   cursor: help;
-  /* display: inline-block; */
 }
 
 .tippy-box {

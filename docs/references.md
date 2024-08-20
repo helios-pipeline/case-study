@@ -1,13 +1,16 @@
 # References
 
-- [https://www.oreilly.com/library/view/designing-data-intensive-applications/9781491903063/](https://www.oreilly.com/library/view/designing-data-intensive-applications/9781491903063/)
-- [https://www.oreilly.com/library/view/building-real-time-analytics/9781098138783/](https://www.oreilly.com/library/view/building-real-time-analytics/9781098138783/)
-- [https://www.oreilly.com/library/view/fundamentals-of-data/9781098108298/](https://www.oreilly.com/library/view/fundamentals-of-data/9781098108298/)
-- [https://docs.aws.amazon.com/lambda/latest/operatorguide/execution-environments.html](https://docs.aws.amazon.com/lambda/latest/operatorguide/execution-environments.html)
-- [https://docs.aws.amazon.com/lambda/latest/operatorguide/computing-power.html](https://docs.aws.amazon.com/lambda/latest/operatorguide/computing-power.html)
-- https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html
-- [https://clickhouse.com/docs/en/guides/sizing-and-hardware-recommendations](https://clickhouse.com/docs/en/guides/sizing-and-hardware-recommendations)
-- [https://clickhouse.com/docs/en/architecture/horizontal-scaling](https://clickhouse.com/docs/en/architecture/horizontal-scaling)
-- https://clickhouse.com/docs/en/materialized-view
-- [https://anthonynsimon.com/blog/clickhouse-deployment/\#is-a-single-node-enough](https://anthonynsimon.com/blog/clickhouse-deployment/#is-a-single-node-enough)
-- [https://www.tinybird.co/docs/guides/publishing-data/master-materialized-views](https://www.tinybird.co/docs/guides/publishing-data/master-materialized-views)
+- [Designing Data-Intensive Applications (Book)](https://www.oreilly.com/library/view/designing-data-intensive-applications/9781491903063/)
+- [Building Real-Time Analytics (Book)](https://www.oreilly.com/library/view/building-real-time-analytics/9781098138783/)
+- [Fundamentals of Data Engineering (Book)](https://www.oreilly.com/library/view/fundamentals-of-data/9781098108298/)
+- [AWS Lambda Execution Environments (AWS Docs)](https://docs.aws.amazon.com/lambda/latest/operatorguide/execution-environments.html)
+- [AWS Lambda Computing Power (AWS Docs)](https://docs.aws.amazon.com/lambda/latest/operatorguide/computing-power.html)
+- [Amazon EBS Volume Types (AWS Docs)](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html)
+- [ClickHouse Sizing and Hardware Recommendations (ClickHouse Docs)](https://clickhouse.com/docs/en/guides/sizing-and-hardware-recommendations)
+- [ClickHouse Horizontal Scaling (ClickHouse Docs)](https://clickhouse.com/docs/en/architecture/horizontal-scaling)
+- [ClickHouse Materialized View (ClickHouse Docs)](https://clickhouse.com/docs/en/materialized-view)
+- [ClickHouse Deployment: Is a Single Node Enough? (Blog)](https://anthonynsimon.com/blog/clickhouse-deployment/#is-a-single-node-enough)
+- [Tinybird: Master Materialized Views (Tinybird Docs)](https://www.tinybird.co/docs/guides/publishing-data/master-materialized-views)
+- [Druid Deprecation and ClickHouse Adoption at Lyft (Lyft Blog)](https://eng.lyft.com/druid-deprecation-and-clickhouse-adoption-at-lyft-120af37651fd)
+- [Canva: Product Analytics Event Collection (Canva Blog)](https://www.canva.dev/blog/engineering/product-analytics-event-collection/)
+- [Cloudflare: HTTP Analytics for 6M Requests per Second Using ClickHouse (Cloudflare Blog)](https://blog.cloudflare.com/http-analytics-for-6m-requests-per-second-using-clickhouse/)

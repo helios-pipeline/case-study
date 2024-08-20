@@ -72,6 +72,38 @@ export default {
       const cursorGlow = document.querySelector(".cursor-glow");
       cursorGlow?.classList.remove("active");
       clearTimeout(this.hideTimeout);
+    },
+    copyToClipboard(text, event) {
+      navigator.clipboard.writeText(text).then(() => {
+        this.showCopyFeedback(event.target);
+      }).catch(err => {
+        console.error('Failed to copy: ', err);
+      });
+    },
+
+    showCopyFeedback(element) {
+      const feedback = document.createElement('span');
+      feedback.textContent = 'Copied!';
+      feedback.style.position = 'absolute';
+      feedback.style.backgroundColor = '#4CAF50';
+      feedback.style.color = 'white';
+      feedback.style.padding = '5px 10px';
+      feedback.style.borderRadius = '3px';
+      feedback.style.fontSize = '12px';
+      feedback.style.transition = 'opacity 0.3s';
+
+      const rect = element.getBoundingClientRect();
+      feedback.style.top = `${rect.bottom + 5}px`;
+      feedback.style.left = `${rect.left}px`;
+
+      document.body.appendChild(feedback);
+
+      setTimeout(() => {
+        feedback.style.opacity = '0';
+        setTimeout(() => {
+          document.body.removeChild(feedback);
+        }, 300);
+      }, 2000);
     }
   }
 }
@@ -79,8 +111,8 @@ export default {
 
 <template>
   <div class="cursor-element">
-      <div class="cursor-glow"></div>
-      <span></span>
+    <div class="cursor-glow"></div>
+    <span></span>
   </div>
   <div class="star-animation-container">
     <div id="stars"></div>
@@ -88,52 +120,79 @@ export default {
     <div id="stars3"></div>
     <div class="body">
       <header>
-          <div class="logo">Helios</div>
-          <nav>
-              <ul>
-                <li><a href="/index">Home</a></li>
-                <li><a href="/introduction">Case Study</a></li>
-                <li><a href="https://github.com/helios-pipeline/deploy">GitHub</a></li>
-              </ul>
-          </nav>
+        <div class="logo">Helios</div>
+        <nav>
+          <ul>
+            <li><a href="/index">Home</a></li>
+            <li><a href="/introduction">Case Study</a></li>
+            <li><a href="https://github.com/helios-pipeline/deploy">GitHub</a></li>
+          </ul>
+        </nav>
       </header>
       <main>
-      <section class="about-us">
-        <h1>Meet the Team</h1>
-        <div class="team-members">
-          <div class="team-member">
-            <img src="/about_us/tony.jpeg">
-            <h2>Tony Liao</h2>
-            <p>Email: kuanchiliao@gmail.com</p>
-            <p><a href="https://www.linkedin.com/in/tonyliao1/" target="_blank">LinkedIn</a> | <a href="https://github.com/Kuanchiliao1" target="_blank">GitHub</a></p>
+        <section class="about-us">
+          <h1>Meet the Team</h1>
+          <div class="team-members">
+            <div class="team-member">
+              <img src="/about_us/tony.png">
+              <h2>Tony Liao</h2>
+              <p>
+                <img src="/mail.png" alt="Mail" @click="copyToClipboard('kuanchiliao@gmail.com', $event)" style="cursor: pointer;" class="icons">
+                <a href="https://www.linkedin.com/in/tonyliao1/" target="_blank">
+                  <img src="/linkedin.png" alt="LinkedIn" class="icons">
+                </a>
+                <a href="https://github.com/Kuanchiliao1" target="_blank">
+                  <img src="/github.png" alt="GitHub" class="icons">
+                </a>
+              </p>
+            </div>
+            <div class="team-member">
+              <img src="/about_us/james.jpeg">
+              <h2>James Drabinsky</h2>
+              <p>
+                <img src="/mail.png" alt="Mail" @click="copyToClipboard('james.drabinsky@gmail.com', $event)" style="cursor: pointer;" class="icons">
+                <a href="https://www.linkedin.com/in/jamesdrabinsky/" target="_blank">
+                  <img src="/linkedin.png" alt="LinkedIn" class="icons">
+                </a>
+                <a href="https://github.com/jamesdrabinsky" target="_blank">
+                  <img src="/github.png" alt="GitHub" class="icons">
+                </a>
+              </p>
+            </div>
+            <div class="team-member">
+              <img src="/about_us/garrett.jpeg">
+              <h2>Garrett Cochran</h2>
+              <p>
+                <img src="/mail.png" alt="Mail" @click="copyToClipboard('garrettjcochran@gmail.com', $event)" style="cursor: pointer;" class="icons">
+                <a href="https://www.linkedin.com/in/garrett-cochran-80bb0858/" target="_blank">
+                  <img src="/linkedin.png" alt="LinkedIn" class="icons">
+                </a>
+                <a href="https://github.com/gjcochran" target="_blank">
+                  <img src="/github.png" alt="GitHub" class="icons">
+                </a>
+              </p>
+            </div>
+            <div class="team-member">
+              <img src="/about_us/sean.jpeg">
+              <h2>Sean Powell</h2>
+              <p>
+                <img src="/mail.png" alt="Mail" @click="copyToClipboard('b.sean.powell@gmail.com', $event)" style="cursor: pointer;" class="icons">
+                <a href="https://www.linkedin.com/in/sean-powell/" target="_blank">
+                  <img src="/linkedin.png" alt="LinkedIn" class="icons">
+                </a>
+                <a href="https://github.com/bspowell" target="_blank">
+                  <img src="/github.png" alt="GitHub" class="icons">
+                </a>
+              </p>
+            </div>
           </div>
-          <div class="team-member">
-            <img src="/about_us/james.jpeg">
-            <h2>James Drabinsky</h2>
-            <p>Email: james.drabinsky@gmail.com</p>
-            <p><a href="https://www.linkedin.com/in/jamesdrabinsky/" target="_blank">LinkedIn</a> | <a href="https://github.com/jamesdrabinsky" target="_blank">GitHub</a></p>
-          </div>
-          <div class="team-member">
-            <img src="/about_us/garrett.jpeg">
-            <h2>Garrett Cochran</h2>
-            <p>Email: garrettjcochran@gmail.com</p>
-            <p><a href="https://www.linkedin.com/in/garrett-cochran-80bb0858/" target="_blank">LinkedIn</a> | <a href="https://github.com/gjcochran" target="_blank">GitHub</a></p>
-          </div>
-          <div class="team-member">
-            <img src="/about_us/sean.jpeg">
-            <h2>Sean Powell</h2>
-            <p>Email: b.sean.powell@gmail.com</p>
-            <p><a href="https://www.linkedin.com/in/sean-powell/" target="_blank">LinkedIn</a> | <a href="https://github.com/bspowell" target="_blank">GitHub</a></p>
-          </div>
-        </div>
-      </section>
-    </main>
+        </section>
+      </main>
     </div>
   </div>
 </template>
 
 <style scoped>
-/* General Body */
 .body {
     font-family: 'Lato', Arial, sans-serif;
     background-color: #1a202c;
@@ -146,7 +205,6 @@ export default {
     overflow-x: hidden;
 }
 
-/* Header */
 header {
     display: flex;
     justify-content: space-between;
@@ -164,7 +222,6 @@ header {
     font-weight: bold;
 }
 
-/* Navigation */
 nav ul {
     display: flex;
     list-style-type: none;
@@ -185,78 +242,44 @@ nav ul li a:hover {
     color: #c4b5fd;
 }
 
-
-/* Hero Section */
-.hero {
-    position: relative;
-    text-align: center;
-    padding: 10rem 0;
-}
-
-
-/* Hero Background */
-.hero::before {
-    content: "";
-    position: absolute;
-    top: -90px;
-    left: -20%;
-    width: 130%;
-    height: 1000px;
-    background-image: url('/home/blur1.png');
-    background-position: center;
-    background-size: cover;
-    z-index: -1;
-    pointer-events: none;
-    animation: complexPulse 12s ease-in-out infinite;
-    transform-origin: center;
-}
-
-
-
-/* Hero Text */
-.hero h1 {
-    font-size: clamp(2.5rem, 0.3125rem + 3.75vw, 6rem);
-    font-weight: 600;
-    margin-bottom: 1rem;
-    opacity: var(--sds-size-stroke-border);
-    padding: 2.5rem;
-    background: #365EAB;
-    background: linear-gradient(to top, #365EAB 0%, #F7B655 64%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.hero p {
-    font-size: 1.25rem;
-    margin-bottom: 2rem;
-}
-
-/* About Us Section */
 .about-us {
-    text-align: center;
-    padding: 2rem 0;
-    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 0;
 }
 
 .about-us h1 {
     margin-bottom: 2rem;
     font-size: 2.5rem;
+    font-weight: 900;
 }
 
 .team-members {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(250px, 1fr));
     justify-content: center;
-    gap: 2rem;
-    padding: 1rem;
+    gap: 4rem;
+    padding: 2rem 4rem;
+    align-items: center;
+    margin: 0 auto;
 }
 
 .team-member {
+    max-width: 350px;
+    width: 100%;
     background-color: #2d3748;
     padding: 1.5rem;
+    margin: 0.5rem;
     border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
     text-align: center;
-    width: 200px;
+    height: 100%;
+    z-index: 9999;
 }
 
 .team-member img {
@@ -269,21 +292,46 @@ nav ul li a:hover {
 .team-member h2 {
     margin: 0.5rem 0;
     font-size: 1.5rem;
+    white-space: nowrap;
 }
 
 .team-member p {
-    margin: 0.25rem 0;
+    /* margin: auto 0 0.25rem 0; */
+    margin-top: auto;
+    padding-top: 1rem;
     font-size: 1rem;
+    display: flex;
+    justify-content: space-around;
 }
+
 
 .team-member a {
     color: #b67bf1;
     text-decoration: none;
 }
 
+.team-member p .icons {
+    width: 32px;
+    height: 32px;
+    margin: 0 10px;
+    vertical-align: middle;
+}
+
 .team-member a:hover {
     color: #eea011;
     text-decoration: underline;
+}
+
+@media (max-width: 1300px) {
+    .team-members {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 700px) {
+    .team-members {
+        grid-template-columns: 1fr;
+    }
 }
 
 </style>
