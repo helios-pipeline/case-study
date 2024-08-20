@@ -8,6 +8,9 @@ export default defineConfig({
   head: [['link', { rel: 'icon', href: '/helios_favicon.ico' }]],
   appearance: false,
   themeConfig: {
+    search: {
+      provider: 'local'
+    },
     nav: [{ text: "Home", link: "/" }],
     sidebar: {
       "/": [
