@@ -83,6 +83,7 @@ export default {
       <span></span>
   </div>
   <div class="star-animation-container">
+    <div class="bar"></div>
     <div id="stars"></div>
     <div id="stars2"></div>
     <div id="stars3"></div>
@@ -104,7 +105,7 @@ export default {
           <p>
             An open-source, real-time query platform for visualizing and analyzing event streams.
           </p>
-          <a href="/introduction">View Case Study</a>
+          <button><a href="/introduction">View Case Study</a></button>
         </section>
         <section class="content-section">
           <img class="box image sqlconsole" src="/home/sqlconsole.png">
@@ -191,10 +192,19 @@ nav ul li a {
     color: whitesmoke;
     text-decoration: none;
     font-size: 1.3rem;
+    padding-inline: 0.75rem;
 }
 
 nav ul li a:hover {
     color: #c4b5fd;
+}
+
+.bar {
+    height: 6px;
+    width: 100%;
+    position: absolute;
+    background: rgb(174,236,123);
+    background: linear-gradient(75deg, rgba(174,236,123,0.7679446778711485) 0%, rgba(51,158,205,1) 50%, rgba(175,38,203,0.8547794117647058) 100%);
 }
 
 /* Main Content */
