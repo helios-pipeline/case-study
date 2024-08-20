@@ -115,17 +115,18 @@ export default {
     <span></span>
   </div>
   <div class="star-animation-container">
+    <div class="bar"></div>
     <div id="stars"></div>
     <div id="stars2"></div>
     <div id="stars3"></div>
     <div class="body">
       <header>
-        <div class="logo">Helios</div>
+        <img class="logo" src="/home/helios_icon_white.png">
         <nav>
           <ul>
-            <li><a href="/index">Home</a></li>
+            <li><a href="/">Home</a></li>
             <li><a href="/introduction">Case Study</a></li>
-            <li><a href="https://github.com/helios-pipeline/deploy">GitHub</a></li>
+            <li><a href="https://github.com/helios-platform"><img src="/home/github-icon.png" /></a></li>
           </ul>
         </nav>
       </header>
@@ -205,6 +206,47 @@ export default {
     overflow-x: hidden;
 }
 
+/* Navigation */
+nav ul {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    align-items: center;
+}
+
+nav ul li {
+    margin-left: 1rem;
+}
+
+nav ul li a {
+    color: whitesmoke;
+    text-decoration: none;
+    font-size: 1.3rem;
+    padding-inline: 0.75rem;
+}
+
+nav ul li a:hover {
+    color: #c4b5fd;
+}
+
+nav ul li:last-child a {
+  padding-right: 0;
+  display: flex;
+}
+
+nav ul li:last-child a img {
+  width: 2rem;
+  height: 2rem;
+}
+
+.bar {
+    height: 6px;
+    width: 100%;
+    position: absolute;
+    background: rgb(174,236,123);
+    background: linear-gradient(75deg, rgba(174,236,123,0.7679446778711485) 0%, rgba(51,158,205,1) 50%, rgba(175,38,203,0.8547794117647058) 100%);
+}
+
 header {
     display: flex;
     justify-content: space-between;
@@ -220,26 +262,8 @@ header {
 .logo {
     font-size: 1.5rem;
     font-weight: bold;
-}
-
-nav ul {
-    display: flex;
-    list-style-type: none;
-    padding: 0;
-}
-
-nav ul li {
-    margin-left: 1rem;
-}
-
-nav ul li a {
-    color: whitesmoke;
-    text-decoration: none;
-    font-size: 1.3rem;
-}
-
-nav ul li a:hover {
-    color: #c4b5fd;
+    width: 70px;
+    height: 70px;
 }
 
 .about-us {
