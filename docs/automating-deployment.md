@@ -14,7 +14,7 @@ How it works:
 <p><Icon name="CubeTransparentIcon" /><span> Under the hood, Helios leverages the AWS Cloud Development Kit (AWS CDK) which we will go into more detail below.</span></p>
 </div>
 
-![CLI](public/case_study/cli_dropshadow.png)
+![CLI](/case_study/cli_dropshadow.png)
 
 ## AWS CDK
 

@@ -18,7 +18,7 @@ An **event** is a state change in a system or application. This could be as simp
 
 #### Event streaming
 
-![Event Streaming](public/case_study/eventbroker.png)
+![Event Streaming](/case_study/eventbroker.png)
 
 **Event streaming** is the continuous transmission and processing of events from various sources in real-time or near real-time. **Real-time** has different meanings depending on the context. For instance, in high-frequency trading, real-time might mean microseconds, whereas in social media analytics, it could mean within a few minutes. In this case study, we define real-time as end-to-end latency within 5 seconds from event consumption by Helios from a streaming platform to event data being available for querying. This definition is based on our load testing, which will be detailed later in this case study.
 
@@ -45,7 +45,7 @@ Event streaming serves a variety of functions, including:
 
 While event streaming platforms excel at ingesting and processing high-volume, real-time data, they present a significant challenge for data analysis and exploration: data accessibility. Event streaming platforms are optimized for throughput and real-time processing, not for ad-hoc querying or historical analysis. This makes it difficult for analysts to explore past data or perform complex analyses on the fly.
 
-![Black Box](public/case_study/blackbox.png)
+![Black Box](/case_study/blackbox.png)
 
 This limitation can significantly impact a team's ability to derive timely insights from their streaming data. To illustrate this challenge more concretely, let's consider a common use case in the e-commerce industry.
 
@@ -73,7 +73,7 @@ For example, Tinybird is a data platform that allows users to explore real-time 
 
 There are similar services including StarTree, which operates in the same space as Tinybird and serves customers including Stripe.
 
-![Tinybird](public/case_study/tinybird_arch.png)
+![Tinybird](/case_study/tinybird_arch.png)
 
 Managed services offer quick setup and powerful features, but come with specific trade-offs.
 
@@ -101,19 +101,19 @@ At its core, Helios is comprised of:
   <p><Icon name="LinkIcon" /><span>Helios Amazon Kinesis Integration: Links existing Kinesis streams to the Helios infrastructure.</span></p>
 </div>
 
-![Kinesis Connection](public/case_study/kinesis_to_helios.png)
+![Kinesis Connection](/case_study/kinesis_to_helios.png)
 
 <div class="icon-list">
   <p><Icon name="WindowIcon" /><span>Helios web application: offers an interface for connecting existing streams to the Helios backend infrastructure and an integrated SQL console querying and analyzing Kinesis event streams.</span></p>
 </div>
 
-![Web app](public/case_study/webapp.png)
+![Web app](/case_study/webapp.png)
 
 <div class="icon-list">
   <p><Icon name="CommandLineIcon" /><span>Helios CLI: configures Helios deployment with AWS credentials; deploys the entire Helios stack to AWS using a single command; and destroys the stack when needed. We will go into more detail within the Automating Deployment section.</span></p>
 </div>
 
-![CLI](public/case_study/cli_dropshadow.png)
+![CLI](/case_study/cli_dropshadow.png)
 
 As with any tool, the suitability of Helios depends on each team's specific requirements, existing infrastructure, and resources. We encourage potential users to evaluate how our offering aligns with their particular needs and constraints.
 
@@ -123,6 +123,6 @@ To summarize, teams have numerous options for viewing and analyzing events withi
 
 Each option offers distinct advantages and limitations, making it crucial for teams to carefully evaluate their specific requirements before selecting the most suitable approach.
 
-![Comparison Table](public/case_study/comparetableshadow.png)
+![Comparison Table](/case_study/comparetableshadow.png)
 
 Having explored the problem space and current solutions, we will now dive into Helios' internal workings. The upcoming section will break down our architecture, examining how each component functions in detail.

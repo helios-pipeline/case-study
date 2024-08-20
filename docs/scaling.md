@@ -10,6 +10,6 @@ Vertical scaling, often referred to as "scaling up," involves increasing the res
 
 The diagram below illustrates three primary vertical scaling options available for the Helios architecture within the AWS ecosystem. These options focus on enhancing the capabilities of our existing EC2 instances, <TippyWrapper content="EBS is AWS's persistent storage for EC2 instances">Elastic Block Store (EBS)</TippyWrapper> volumes, and Lambda functions, allowing us to boost processing power and storage capacity without fundamentally altering our system's architecture. By leveraging these vertical scaling techniques, we can efficiently address growing workloads and ensure Helios continues to deliver solid performance as user needs evolve.
 
-![Scaling Helios](public/case_study/scaling_components.png)
+![Scaling Helios](/case_study/scaling_components.png)
 
 Understanding our system's limits is key to effective scaling. In this next section, we'll walk through our load testing process and system capabilities.
