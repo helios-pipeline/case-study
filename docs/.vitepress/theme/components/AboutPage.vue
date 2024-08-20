@@ -90,6 +90,7 @@ export default {
       feedback.style.borderRadius = '3px';
       feedback.style.fontSize = '12px';
       feedback.style.transition = 'opacity 0.3s';
+      feedback.style.zIndex = 10000;
 
       const rect = element.getBoundingClientRect();
       feedback.style.top = `${rect.bottom + 5}px`;
