@@ -6,9 +6,11 @@ When evaluating storage solutions for real-time event streaming and querying, we
 
 ### Our criteria
 
-1. High write throughput: The database must be capable of handling continuous writes of large volumes of streaming data, allowing Helios to ingest data efficiently without bottlenecks.
-2. Low-latency query performance: Aggregating large datasets for analytical queries inherently challenges performance, and real-time analytics demands rapid insights for timely decision-making. Specifically, the database should be able to execute aggregation queries spanning multiple columns across tens of millions of rows in under a few seconds.
-3. Extensive SQL support: Given SQL's popularity and reliability as a querying language, we prioritized databases that support a wide range of SQL features. This ensures users can leverage complex joins, filters, and aggregations, enhancing the flexibility and depth of their data analysis.
+<div class="icon-list">
+<p><Icon name="ArrowTrendingUpIcon" /><span>High write throughput: The database must be capable of handling continuous writes of large volumes of streaming data, allowing Helios to ingest data efficiently without bottlenecks.</span></p>
+<p><Icon name="BoltIcon" /><span>Low-latency query performance: Aggregating large datasets for analytical queries inherently challenges performance, and real-time analytics demands rapid insights for timely decision-making. Specifically, the database should be able to execute aggregation queries spanning multiple columns across tens of millions of rows in under a few seconds.</span></p>
+<p><Icon name="CodeBracketIcon" /><span>Extensive SQL support: Given SQL's popularity and reliability as a querying language, we prioritized databases that support a wide range of SQL features. This ensures users can leverage complex joins, filters, and aggregations, enhancing the flexibility and depth of their data analysis.</span></p>
+</div>
 
 ### Document-based Storage
 
@@ -24,11 +26,11 @@ However, row-based storage is often inefficient when it comes to analytical quer
 
 The following is a basic event table along with a basic analytic query that asks the question “How many events has each user initiated?”
 
-![Event Table](public/case_study/eventtable.png)
+![Event Table](/case_study/eventtable.png)
 
 Below is an example of how row-based databases might execute an analytical query:
 
-##### ![Row Table](public/case_study/rowbased.png)
+##### ![Row Table](/case_study/rowbased.png)
 
 #####
 
@@ -38,7 +40,7 @@ Columnar databases such as Clickhouse and Apache Druid use column-based storage.
 
 Below is an example of how column-based databases might execute an analytical query:
 
-![Column Table](public/case_study/columnbased.png)
+![Column Table](/case_study/columnbased.png)
 
 One key limitation is that the data in a columnar database is not well-suited for frequent updates or deletions of existing data. Fortunately, this drawback should not be limiting for Helios users. By nature, many real-time streaming data use-cases mostly require database reads and insertions that do not modify existing data.
 
@@ -48,11 +50,13 @@ After evaluating these database types, it was clear that columnar-based storage 
 
 After deciding on a columnar database, we evaluated a number of database options and ultimately selected Clickhouse as our preferred choice because it met all of our original criteria plus had a few extra standout benefits:
 
-- High write throughput
-- Low-latency query performance
-- <TippyWrapper content="Provides the most support for ANSI SQL compared to the other columnar databases we evaluated such as Apache Druid and Apache Pinot, allowing users to leverage familiar query syntax and features">SQL Support</TippyWrapper>
-- Comprehensive Documentation
-- Open Source
+<div class="icon-list">
+<p><Icon name="ArrowTrendingUpIcon" /><span>High write throughput</span></p>
+<p><Icon name="BoltIcon" /><span>Low-latency query performance</span></p>
+<p><Icon name="CodeBracketIcon" /><TippyWrapper content="Provides the most support for ANSI SQL compared to the other columnar databases we evaluated such as Apache Druid and Apache Pinot, allowing users to leverage familiar query syntax and features">SQL Support</TippyWrapper></p>
+<p><Icon name="DocumentTextIcon" /><span>Comprehensive Documentation</span></p>
+<p><Icon name="LockOpenIcon" /><span>Open Source</span></p>
+</div>
 
 Of the criteria listed above, ClickHouse's impressive read and write latency particularly impressed us. For more insights into ClickHouse's performance, see our [Load Testing](./load-testing.md) results.
 
@@ -60,7 +64,7 @@ Of the criteria listed above, ClickHouse's impressive read and write latency par
 
 ### Single Node vs Node Cluster
 
-![Node Cluster](public/case_study/node_cluster_opt.png)
+![Node Cluster](/case_study/node_cluster_opt.png)
 
 We explored several options when determining the optimal deployment strategy for the Helios production ClickHouse server. While many database deployments utilize clustered architectures for high availability and scalability, with modern implementations often leveraging containerization and orchestration tools like Kubernetes, we found this approach less suitable for ClickHouse.
 
@@ -70,10 +74,12 @@ Contrary to the typical horizontal scaling strategy for other database types lik
 
 Key factors in our decision-making process included:
 
-1. Performance optimization: ClickHouse can efficiently handle massive datasets on a single server
-2. Simplicity: Reduced complexity in deployment and management compared to a clustered setup.
-3. Cost-effectiveness: Maximizing resource utilization before scaling horizontally.
-4. Scalability: Ensuring our architecture can still accommodate future growth when necessary.
+<div class="icon-list">
+<p><Icon name="CpuChipIcon" /><span>Performance optimization: ClickHouse can efficiently handle massive datasets on a single server</span></p>
+<p><Icon name="CircleStackIcon" /><span>Simplicity: Reduced complexity in deployment and management compared to a clustered setup.</span></p>
+<p><Icon name="CurrencyDollarIcon" /><span>Cost-effectiveness: Maximizing resource utilization before scaling horizontally.</span></p>
+<p><Icon name="ArrowsPointingOutIcon" /><span>Scalability: Ensuring our architecture can still accommodate future growth when necessary.</span></p>
+</div>
 
 Based on these considerations, we opted to host ClickHouse on an Amazon EC2 virtual server with Elastic Block Storage (EBS). This approach allows us to leverage ClickHouse's inherent strengths while maintaining the flexibility for users to scale as needed. Later in the Scaling Helios section, we will go deeper into EBS and other vertical scaling considerations as it pertains to Helios.
 
@@ -87,7 +93,7 @@ Lambda functions typically operate on a shared pool of virtual CPUs, essentially
 
 This prep time setting up the execution environment, a cold start, is not charged, but it adds latency to the Lambda invocation. One could pay to ensure dedicated CPUs are available to avoid this cold start latency.
 
-![Cold Starts](public/case_study/lambdacoldstarts.png)
+![Cold Starts](/case_study/lambdacoldstarts.png)
 
 Ultimately, we decided to stick with the default setup to save users money and have our Lambda function run with cold starts versus implementing a warm Lambda. We believe that the latency impact from this initial setup is of minimal concern as per the nature of event streams; after the first execution, each Lambda execution environment will stay active as long as they are continually invoked.
 

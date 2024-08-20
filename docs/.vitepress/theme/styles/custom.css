@@ -1,0 +1,51 @@
+.tippy-trigger {
+  border-bottom: 1px dotted #3eaf7c;
+  cursor: help;
+  /* display: inline-block; */
+}
+
+.tippy-box {
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+.tippy-box[data-theme~="custom"] {
+  background-color: #213547;
+  color: #ffffff;
+}
+
+.tippy-box[data-theme~="custom"][data-placement^="top"] > .tippy-arrow::before {
+  border-top-color: #213547;
+}
+
+.tippy-arrow {
+  color: #213547;
+}
+
+.outline-link {
+  white-space: wrap !important;
+}
+
+.icon-list {
+  padding-left: 0.5em;
+}
+
+.icon-list p {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 0.5em;
+}
+
+.icon-list .icon {
+  flex-shrink: 0;
+  margin-right: 0.5em;
+  width: 1.6em;
+  height: 1.6em;
+  color: #e37626;
+}
+
+.icon-list p span {
+  display: inline-block;
+  line-height: 1.2;
+  padding-top: 0.2em;
+}

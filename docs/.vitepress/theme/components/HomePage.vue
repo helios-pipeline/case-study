@@ -88,13 +88,14 @@ export default {
     <div id="stars3"></div>
     <div class="body">
       <header>
-          <div class="logo">Helios</div>
-          <nav>
-              <ul>
-                  <li><a href="/introduction">Case Study</a></li>
-                  <li><a href="https://github.com/helios-pipeline/deploy">GitHub</a></li>
-              </ul>
-          </nav>
+        <div class="logo">Helios</div>
+        <nav>
+          <ul>
+            <li><a href="/case-study/about-us">Team</a></li>
+            <li><a href="/case-study/introduction">Case Study</a></li>
+            <li><a href="https://github.com/helios-pipeline/deploy">GitHub</a></li>
+          </ul>
+        </nav>
       </header>
       <main>
         <section class="hero">
@@ -122,8 +123,11 @@ export default {
           </div>
         </section>
         <section class="content-section cli">
-          <img class="box image" src="/home/terminal.png">
-          </img>
+          <!-- <img class="box image" src="/home/terminal.png">
+          </img> -->
+          <video class="video" width="500" height="500" autoplay loop muted>
+            <source src="/home/helios-cli.mp4" type="video/mp4">
+          </video>
           <div class="content">
             <h2>Automated Deployment</h2>
             <p>Helios CLI configures Helios deployment with AWS credentials, deploys the entire Helios stack to AWS using a single command, and destroys the stack when needed.</p>
@@ -243,7 +247,7 @@ main {
     left: -20%;
     width: 130%;
     height: 1000px;
-    background-image: url('home/blur1.png');
+    background-image: url('/home/blur1.png');
     background-position: center;
     background-size: cover;
     z-index: -1;
@@ -264,7 +268,7 @@ main {
     left: 0;
     width: 100%;
     height: 300px;
-    background-image: url('home/blur2.png');
+    background-image: url('/home/blur2.png');
     background-position: center;
     background-size: cover;
     z-index: -1;
@@ -290,12 +294,16 @@ section.content-section.cli {
     left: 60px;
     width: 100%;
     height: 500px;
-    background-image: url('home/blur3.png');
+    background-image: url('/home/blur3.png');
     background-position: center;
     background-size: cover;
     z-index: -1;
 }
 
+.cli .video {
+  border-radius: 10px;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
+}
 /* Main Background Trail */
 main::after {
     content: "";
@@ -304,7 +312,7 @@ main::after {
     left: 15px;
     width: 98%;
     aspect-ratio: 1/1;
-    background-image: url('home/trail.png');
+    background-image: url('/home/trail.png');
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;

@@ -1,7 +1,7 @@
 import DefaultTheme from "vitepress/theme";
 import VueTippy from "vue-tippy";
 import "tippy.js/dist/tippy.css";
-import "./custom.css";
+import "./styles/custom.css";
 import * as components from "./components";
 
 export default {

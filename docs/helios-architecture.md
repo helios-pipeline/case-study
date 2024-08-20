@@ -2,11 +2,13 @@
 
 To meet the requirements of Amazon Kinesis users looking to explore and analyze their event streams, Helios is built around three key components:
 
-1. Storage \- A database optimized for querying streaming data, specifically an Online Analytical Processing (OLAP) database capable of handling high-volume, real-time data ingestion, and delivering fast query performance for analytical workloads.
-2. Connection \- An ingestion mechanism to efficiently transfer events from Kinesis streams into our chosen database.
-3. Interface \- A user-friendly graphical interface allowing users to conduct analyses and visualize results.
+<div class="icon-list">
+<p><Icon name="CircleStackIcon" /><span><strong>Storage</strong> - A database optimized for querying streaming data, specifically an Online Analytical Processing (OLAP) database capable of handling high-volume, real-time data ingestion, and delivering fast query performance for analytical workloads.</span></p>
+<p><Icon name="LinkIcon" /><span><strong>Connection</strong> - An ingestion mechanism to efficiently transfer events from Kinesis streams into our chosen database.</span></p>
+<p><Icon name="WindowIcon" /><span><strong>Interface</strong> - A user-friendly graphical interface allowing users to conduct analyses and visualize results.</span></p>
+</div>
 
-![Core Arch](public/case_study/core_full_color.png)
+![Core Arch](/case_study/core_full_color.png)
 
 Given that potential Helios users are already leveraging Amazon Kinesis, it made sense to host all of Helios' infrastructure within the AWS ecosystem.
 
@@ -28,7 +30,7 @@ The following diagram illustrates our storage architecture:
 
 ### ClickHouse Database Server
 
-![Clickhouse Arch](public/case_study/core_clickhouse_highlight.png)
+![Clickhouse Arch](/case_study/core_clickhouse_highlight.png)
 
 The main functions of the ClickHouse database are to store event data consumed from Kinesis streams and to make this data available for querying. The database is deployed on an Amazon EC2 instance (i.e. virtual server).
 
@@ -36,16 +38,19 @@ With storage in place, the next phase of our architecture design was to implemen
 
 ## Connection
 
-![Connection Arch](public/case_study/core_connector_highlight.png)
+![Connection Arch](/case_study/core_connector_highlight.png)
 
 Efficiently transferring events from Kinesis streams to our ClickHouse database presented a challenge. We needed a solution that could handle high-volume data ingestion, perform necessary decoding, and ensure reliable delivery.
 
 To address this, we developed a custom AWS Lambda function as our stream processor. This approach allows us to:
 
-- Decode and parse Kinesis event data
-- Implement custom error handling
-- Dynamically map data to appropriate ClickHouse tables
-- Perform efficient inserts
+<div class="icon-list">
+<p><Icon name="DocumentMagnifyingGlassIcon" /><span>Decode and parse Kinesis event data</span></p>
+
+<p><Icon name="ExclamationTriangleIcon" /><span> Implement custom error handling</span></p>
+<p><Icon name="TableCellsIcon" /><span> Dynamically map data to appropriate ClickHouse tables</span></p>
+<p><Icon name="ArrowDownOnSquareIcon" /><span> Perform efficient inserts</span></p>
+</div>
 
 By leveraging Lambda, we created a flexible and scalable solution tailored to our specific data processing needs. Let's explore how this custom processor works in detail.
 
@@ -57,9 +62,9 @@ Helios’ Lambda Processor is an AWS serverless function that serves as a connec
 
 Using an event-based trigger, the function ingests <TippyWrapper content="In Amazon Kinesis, this is formally called a 'record'. However, for consistency and clarity in our discussion, we will continue to refer to it as an 'event' throughout this case study.">event data</TippyWrapper> from AWS Kinesis streams, and decodes the Kinesis event payload into a JSON object.
 
-![Kinesis Integration 1](public/case_study/kinesis_integration1.png)
+![Kinesis Integration 1](/case_study/kinesis_integration1.png)
 
-![Kinesis Integration 2](public/case_study/kinesis_integration2.png)
+![Kinesis Integration 2](/case_study/kinesis_integration2.png)
 
 Once the Lambda decodes the payload from a stream, the data needs to be sent to the associated destination table within Clickhouse. To retrieve the table ID, the Lambda interacts with a key-value database, DynamoDB, which contains a mapping of stream IDs to table IDs.
 
@@ -71,12 +76,14 @@ While the storage and connection components form the backbone of Helios, the ana
 
 ### Application Server
 
-![App Server](public/case_study/core_client_server_highlight.png)
+![App Server](/case_study/core_client_server_highlight.png)
 
 The Helios web application, hosted on an Amazon EC2 instance, serves as the primary interface for users. Implemented with a Flask backend and a React frontend, its core features include:
 
-1. An interactive SQL console for querying data from event streams, enabling real-time data analysis
-2. An interface for connecting a data source, such as a Kinesis stream, to the Helios architecture
+<div class="icon-list">
+<p><Icon name="CommandLineIcon" /><span>An interactive SQL console for querying data from event streams, enabling real-time data analysis</span></p>
+<p><Icon name="LinkIcon" /><span>An interface for connecting a data source, such as a Kinesis stream, to the Helios architecture</span></p>
+</div>
 
 Now that you have a good understanding of how Helios works, in the next section we will cover why we designed it in this way as well as the trade-offs made throughout the building of Helios. Here is our architecture so far:
-![Core Arch](public/case_study/core_full_color.png)
+![Core Arch](/case_study/core_full_color.png)
