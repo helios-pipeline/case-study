@@ -26,11 +26,11 @@ However, row-based storage is often inefficient when it comes to analytical quer
 
 The following is a basic event table along with a basic analytic query that asks the question “How many events has each user initiated?”
 
-![Event Table](public/case_study/eventtable.png)
+![Event Table](/case_study/eventtable.png)
 
 Below is an example of how row-based databases might execute an analytical query:
 
-##### ![Row Table](public/case_study/rowbased.png)
+##### ![Row Table](/case_study/rowbased.png)
 
 #####
 
@@ -40,7 +40,7 @@ Columnar databases such as Clickhouse and Apache Druid use column-based storage.
 
 Below is an example of how column-based databases might execute an analytical query:
 
-![Column Table](public/case_study/columnbased.png)
+![Column Table](/case_study/columnbased.png)
 
 One key limitation is that the data in a columnar database is not well-suited for frequent updates or deletions of existing data. Fortunately, this drawback should not be limiting for Helios users. By nature, many real-time streaming data use-cases mostly require database reads and insertions that do not modify existing data.
 
@@ -64,7 +64,7 @@ Of the criteria listed above, ClickHouse's impressive read and write latency par
 
 ### Single Node vs Node Cluster
 
-![Node Cluster](public/case_study/node_cluster_opt.png)
+![Node Cluster](/case_study/node_cluster_opt.png)
 
 We explored several options when determining the optimal deployment strategy for the Helios production ClickHouse server. While many database deployments utilize clustered architectures for high availability and scalability, with modern implementations often leveraging containerization and orchestration tools like Kubernetes, we found this approach less suitable for ClickHouse.
 
@@ -93,7 +93,7 @@ Lambda functions typically operate on a shared pool of virtual CPUs, essentially
 
 This prep time setting up the execution environment, a cold start, is not charged, but it adds latency to the Lambda invocation. One could pay to ensure dedicated CPUs are available to avoid this cold start latency.
 
-![Cold Starts](public/case_study/lambdacoldstarts.png)
+![Cold Starts](/case_study/lambdacoldstarts.png)
 
 Ultimately, we decided to stick with the default setup to save users money and have our Lambda function run with cold starts versus implementing a warm Lambda. We believe that the latency impact from this initial setup is of minimal concern as per the nature of event streams; after the first execution, each Lambda execution environment will stay active as long as they are continually invoked.
 

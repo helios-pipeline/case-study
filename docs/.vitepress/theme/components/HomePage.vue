@@ -123,8 +123,11 @@ export default {
           </div>
         </section>
         <section class="content-section cli">
-          <img class="box image" src="/home/terminal.png">
-          </img>
+          <!-- <img class="box image" src="/home/terminal.png">
+          </img> -->
+          <video class="video" width="500" height="500" controls autoplay loop>
+            <source src="/home/helios-cli.mp4" type="video/mp4">
+          </video>
           <div class="content">
             <h2>Automated Deployment</h2>
             <p>Helios CLI configures Helios deployment with AWS credentials, deploys the entire Helios stack to AWS using a single command, and destroys the stack when needed.</p>
@@ -297,6 +300,10 @@ section.content-section.cli {
     z-index: -1;
 }
 
+.cli .video {
+  border-radius: 10px;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
+}
 /* Main Background Trail */
 main::after {
     content: "";
