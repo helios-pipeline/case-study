@@ -122,9 +122,11 @@ export default {
           </div>
         </section>
         <section class="content-section cli">
-          <video class="video" width="500" height="500" autoplay loop muted>
-            <source src="/home/helios-cli.mp4" type="video/mp4">
-          </video>
+          <div class="video-container">
+            <video class="video" width="500" height="500" autoplay loop muted>
+              <source src="/home/helios-cli.mp4" type="video/mp4">
+            </video>
+          </div>
           <div class="content">
             <h2>Automated Deployment</h2>
             <p>Helios CLI configures Helios deployment with AWS credentials, deploys the entire Helios stack to AWS using a single command, and destroys the stack when needed.</p>
@@ -181,6 +183,7 @@ nav ul {
     display: flex;
     list-style-type: none;
     padding: 0;
+    align-items: center;
 }
 
 nav ul li {
@@ -196,6 +199,16 @@ nav ul li a {
 
 nav ul li a:hover {
     color: #c4b5fd;
+}
+
+nav ul li:last-child a {
+  padding-right: 0;
+  display: flex;
+}
+
+nav ul li:last-child a img {
+  width: 2rem;
+  height: 2rem;
 }
 
 .bar {
@@ -311,7 +324,24 @@ section.content-section.cli {
 
 .cli .video {
   border-radius: 10px;
-  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.video-container {
+  position: relative;
+  transform: translateX(5%) scale(0.9);
+}
+
+.video-container::after {
+  content: '';
+  height: 100%;
+  width: 100%;
+  background-color: #4fb5d754;
+  position: absolute;
+  top: 13%;
+  left: -10%;
+  z-index: -10;
+  border-radius: 10px;
+  background: linear-gradient(75deg, rgb(51 145 205 / 38%) 0%, rgb(38 197 203 / 0%) 100%);
 }
 /* Main Background Trail */
 main::after {
@@ -369,6 +399,10 @@ button:hover {
     align-items: center;
     margin-bottom: 6rem;
     gap: 2rem;
+}
+
+.content-section.cli {
+    gap: 4rem;
 }
 
 .content-section .content,
