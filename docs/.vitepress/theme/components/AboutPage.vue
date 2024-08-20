@@ -36,13 +36,13 @@ export default {
       }
     },
     handleMouseEnter(e) {
-      if (e.target && e.target.matches('header, main')) {
+      if (e && e.target && typeof e.target.matches === 'function' && e.target.matches('header, main')) {
         this.isOverActiveArea = true;
         this.showCursor();
       }
     },
     handleMouseLeave(e) {
-      if (e.target && e.target.matches('header, main')) {
+      if (e && e.target && typeof e.target.matches === 'function' && e.target.matches('header, main')) {
         this.isOverActiveArea = false;
         this.hideCursor();
       }
@@ -51,7 +51,6 @@ export default {
       const easing = 0.15;
       this.cursorX += (this.mouseX - this.cursorX) * easing;
       this.cursorY += (this.mouseY - this.cursorY) * easing;
-
       const cursorElement = document.querySelector(".cursor-element");
       if (cursorElement) {
         cursorElement.style.transform = `translate(${this.cursorX}px, ${this.cursorY}px)`;
@@ -91,6 +90,7 @@ export default {
       feedback.style.borderRadius = '3px';
       feedback.style.fontSize = '12px';
       feedback.style.transition = 'opacity 0.3s';
+      feedback.style.zIndex = 10000;
 
       const rect = element.getBoundingClientRect();
       feedback.style.top = `${rect.bottom + 5}px`;
@@ -125,8 +125,9 @@ export default {
         <nav>
           <ul>
             <li><a href="/">Home</a></li>
+            <li><a href="/about-us">Team</a></li>
             <li><a href="/introduction">Case Study</a></li>
-            <li><a href="https://github.com/helios-platform"><img src="/home/github-icon.png" /></a></li>
+            <li><a href="https://github.com/helios-platform" target="_blank"><img src="/home/github-icon.png" /></a></li>
           </ul>
         </nav>
       </header>
@@ -195,7 +196,7 @@ export default {
 
 <style scoped>
 .body {
-    font-family: 'Lato', Arial, sans-serif;
+    font-family: 'Manrope', Arial, sans-serif;
     background-color: #1a202c;
     color: #ffffff;
     margin: 0;
@@ -277,7 +278,7 @@ header {
 .about-us h1 {
     margin-bottom: 2rem;
     font-size: 2.5rem;
-    font-weight: 900;
+    font-weight: 700;
 }
 
 .team-members {
@@ -293,7 +294,7 @@ header {
 .team-member {
     max-width: 350px;
     width: 100%;
-    background-color: #2d3748;
+    background-color: hsl(217.78deg 23.08% 22.94% / 70%);
     padding: 1.5rem;
     margin: 0.5rem;
     border-radius: 0.5rem;
@@ -328,22 +329,11 @@ header {
     justify-content: space-around;
 }
 
-
-.team-member a {
-    color: #b67bf1;
-    text-decoration: none;
-}
-
 .team-member p .icons {
     width: 32px;
     height: 32px;
     margin: 0 10px;
     vertical-align: middle;
-}
-
-.team-member a:hover {
-    color: #eea011;
-    text-decoration: underline;
 }
 
 @media (max-width: 1300px) {
