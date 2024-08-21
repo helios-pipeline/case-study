@@ -14,14 +14,14 @@ We conducted basic load testing on Helios to evaluate its performance under high
 
 ### Infrastructure Setup
 
-| EC2 Instance                | Lambda Configuration                  | Kinesis Configuration        |
-| --------------------------- | ------------------------------------- | ---------------------------- |
-| • Instance Type: c5.4xlarge | • Runtime: Python 3.12                | • Streams: 1 stream          |
-| • vCPUs: 16                 | • Memory: 1024 MB                     | • Shards: 1 shard per stream |
-| • Memory: 32 GB             | • Timeout: 15 minutes                 |                              |
-| • Storage: 500gb gp2        | • Concurrency: 10 instances per shard |                              |
-|                             | • Batch Size: 100                     |                              |
-|                             | • Batch Window: 1 second              |                              |
+| EC2 Instance              | Lambda Configuration                | Kinesis Configuration      |
+| ------------------------- | ----------------------------------- | -------------------------- |
+| Instance Type: c5.4xlarge | Runtime: Python 3.12                | Streams: 1 stream          |
+| vCPUs: 16                 | Memory: 1024 MB                     | Shards: 1 shard per stream |
+| Memory: 32 GB             | Timeout: 15 minutes                 |                            |
+| Storage: 500gb gp2        | Concurrency: 10 instances per shard |                            |
+|                           | Batch Size: 100                     |                            |
+|                           | Batch Window: 1 second              |                            |
 
 ### Data Generation and Ingestion
 

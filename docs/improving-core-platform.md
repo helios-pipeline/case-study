@@ -8,17 +8,18 @@ Below we detail the problems we encountered and the solutions we implemented to 
 
 The initial version of Helios lacked error handling for failed database insertion of event records within the Lambda connector, potentially leading to data loss and difficult to parse error messages. To mitigate these issues and enhance system reliability, we implemented a comprehensive error handling and data quarantine system. Below, we outline the key features of this new system:
 
-<div class="icon-list">
+<div class="icon-list" style="margin-top: 8px;">
 <p><Icon name="ExclamationCircleIcon"/><span><strong>Error Identification</strong>: The Lambda now includes logic to identify various types of errors, including schema mismatches and insertion failures.</span></p>
 <p><Icon name="TagIcon"/><span><strong>Error Categorization</strong>: Each error is then categorized by type and summarized with a concise abstract, providing clear insight into the nature of data quality issues.</span></p>
 <p><Icon name="ArchiveBoxIcon"/><span><strong>Data Preservation</strong>: The data that fails to insert into the main table is then stored in a separate quarantine table along with the error summary details. This ensures no data loss and allows users to quickly examine the exact records that failed to insert.</span></p>
 <p><Icon name="SparklesIcon"/><span><strong>AI Summary</strong>: For users who provide a ChatGPT AI key during deployment, we've integrated an AI-powered feature to enhance the error analysis process. This feature leverages a custom ChatGPT system prompt to summarize and interpret the errors stored in the quarantine table, significantly aiding users in their debugging efforts.</span></p>
 </div>
 
+<br>
 <video class="video" width="700" height="400" muted autoplay loop style="border-radius: 5px; box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);">
   <source src="/case_study/quartable.mp4" type="video/mp4">
 </video>
-
+<br>
 
 These enhancements collectively improve Helios’ error handling, while providing tools for error analysis and resolution.
 
@@ -40,7 +41,9 @@ These optimizations improve system performance while reducing costs for users, a
 
 Parallelization in the context of Lambdas means that multiple Lambda instances can be run at the same time. By default, the Lambda parallelization factor is set to 1\. This means that only one Lambda instance can be a trigger for one Kinesis <TippyWrapper content="A shard is a unit of capacity within a Kinesis stream that provides a fixed amount of data throughput and serves as a partition for organizing events.">shard</TippyWrapper>. We adjusted this setting to 10, allowing up to ten Lambda instances to process data from a single Kinesis shard simultaneously. This significantly improves our ingestion capacity and scalability, increasing our system's ability to handle high-volume data streams quickly and efficiently.
 
-![Parallelization](/case_study/lambdakinesislimit.png)
+<p><img src="/case_study/lambdakinesislimit.png" alt="Parallelization" style="
+  margin-left:  -5%;
+"></p>
 
 ### Caching DynamoDB requests
 

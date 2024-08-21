@@ -64,7 +64,9 @@ Of the criteria listed above, ClickHouse's impressive read and write latency par
 
 ### Single Node vs Node Cluster
 
-![Node Cluster](/case_study/node_cluster_opt.png)
+<p style="
+  margin:  0;
+"><img src="/case_study/node_cluster_opt.png" alt="Node Cluster"></p>
 
 We explored several options when determining the optimal deployment strategy for the Helios production ClickHouse server. While many database deployments utilize clustered architectures for high availability and scalability, with modern implementations often leveraging containerization and orchestration tools like Kubernetes, we found this approach less suitable for ClickHouse.
 
@@ -96,4 +98,3 @@ This prep time setting up the execution environment, a cold start, is not charge
 ![Cold Starts](/case_study/lambdacoldstarts.png)
 
 Ultimately, we decided to stick with the default setup to save users money and have our Lambda function run with cold starts versus implementing a warm Lambda. We believe that the latency impact from this initial setup is of minimal concern as per the nature of event streams; after the first execution, each Lambda execution environment will stay active as long as they are continually invoked.
-
