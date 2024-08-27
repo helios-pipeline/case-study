@@ -103,7 +103,7 @@ export default {
         <section class="hero">
           <h1>Helios</h1>
           <p>
-            An open-source, real-time query platform for visualizing and analyzing event streams.
+            An open-source, real-time query platform for visualizing and analyzing event streams
           </p>
           <button><a href="/introduction">View Case Study</a></button>
         </section>
