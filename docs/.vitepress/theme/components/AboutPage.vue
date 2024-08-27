@@ -162,7 +162,7 @@ export default {
               </p>
             </div>
             <div class="team-member">
-              <img src="/about_us/garrett.jpeg">
+              <img src="/about_us/garrett.jpg">
               <h2>Garrett Cochran</h2>
               <p>
                 <img src="/mail.png" alt="Mail" @click="copyToClipboard('garrettjcochran@gmail.com', $event)" style="cursor: pointer;" class="icons">
